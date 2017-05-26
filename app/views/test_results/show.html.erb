@@ -1,0 +1,63 @@
+<table id="test-table">
+
+  <thead>
+
+    <tr>  
+      <th rowspan="2"><%= @protocol.name %></th>
+
+      <%# iterate over the protocol object's attributes and produce the first row 
+      of the header %>
+      <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
+        <% if value == nil or attribute == "compound" %>
+          <% break %>
+        <% end %>
+        <th><%= "Test Point #{index}" %></th>
+      <% end %>
+    </tr>
+
+    <tr>
+      <%# iterate over the protocol object's attributes and produce the second row 
+      of the header that has the GPMs %>
+      <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
+        <% if value == nil or attribute == "compound" %>
+          <% break %>
+        <% end %>
+        <th><%= value %></th>
+      <% end %>
+    </tr>
+
+  </thead>
+
+  <tbody>
+
+    <tr>
+      <th></th>
+
+      <%# iterate over the protocol object's attributes and specify whether its a
+      main line or secondary line %>
+      <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
+        <% if value == nil or attribute == "compound" %>
+          <% break %>
+         <% end %>
+        <th>Main</th>
+      <% end %>
+    </tr>
+
+    <tr>
+      <td>Start Read</td>
+
+      <%# iterate over the protocol object's attributes and specify whether its a
+      main line or secondary line %>
+      <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
+        <% if value == nil or attribute == "compound" %>
+          <% break %>
+         <% end %>
+        <td><%= number_field "tp#{index + 1}_start_read", nil, step: "any" %></td>
+      <% end %>
+    </tr>
+
+
+
+  </tbody>
+
+</table>

@@ -1,0 +1,58 @@
+<header class="header-two-bars">
+
+  <div class="header-first-bar">
+
+    <div class="header-limiter">
+
+      <h1><a href="#">LADWP<span></span></a></h1>
+
+      <nav id="main-menu">
+        <a href="#">Test</a>
+        <a href="#">Report</a>
+        <a href="#">Search</a>
+      </nav>
+
+      <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "logout-button") %> 
+    </div>
+
+  </div>
+
+  <div class="header-second-bar">
+
+    <div class="header-limiter">
+
+      <nav id="secondary-menu">
+
+    <!-- Protocol dropdown button and selection -->
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Protocol</button>
+            <div class="dropdown-menu">
+              <% @protocols.each do |protocol| %>
+                <%= link_to(protocol.name, user_test_result_path(user_id: 1, id: protocol.id), class: "dropdown-item") %>
+              <% end %>
+                <div class="dropdown-divider"></div>
+                  <%= link_to('New Protocol', new_protocol_path, remote: true, class: "dropdown-item") %>
+                <div class="dropdown-divider"></div>
+                  <%= link_to('Delete Protocol', protocols_path, remote: true, class: "dropdown-item") %>
+                <div class="dropdown-divider"></div>
+                  <%= link_to('Edit Protocol', protocols_path, remote: true, class: "dropdown-item") %>
+            </div>
+        </div>
+
+    <!-- Adjustment factor dropdown button and selection -->
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Adjustment Factor</button>
+            <div class="dropdown-menu">
+              <!-- INSERT ADJUSMENT FACTORS -->
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" id="create-protocol">Create New Protocol</a>
+            </div>
+        </div>
+
+      </nav>
+
+    </div>
+
+  </div>
+
+</header>

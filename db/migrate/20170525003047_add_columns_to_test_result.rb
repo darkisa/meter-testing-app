@@ -1,0 +1,48 @@
+class AddColumnsToTestResult < ActiveRecord::Migration[5.1]
+  def change
+    add_column :test_results, :tp1_start_read, :decimal
+    add_column :test_results, :tp1_end_read, :decimal
+    add_column :test_results, :tp1_register_volume, :decimal
+    add_column :test_results, :tp1_reference_volume, :decimal
+    add_column :test_results, :tp2_start_read, :decimal
+    add_column :test_results, :tp2_end_read, :decimal
+    add_column :test_results, :tp2_register_volume, :decimal
+    add_column :test_results, :tp2_reference_volume, :decimal
+    add_column :test_results, :tp3_start_read, :decimal
+    add_column :test_results, :tp3_end_read, :decimal
+    add_column :test_results, :tp3_register_volume, :decimal
+    add_column :test_results, :tp3_reference_volume, :decimal
+    add_column :test_results, :tp4_start_read, :decimal
+    add_column :test_results, :tp4_end_read, :decimal
+    add_column :test_results, :tp4_register_volume, :decimal
+    add_column :test_results, :tp4_reference_volume, :decimal
+    add_column :test_results, :tp5_start_read, :decimal
+    add_column :test_results, :tp5_end_read, :decimal
+    add_column :test_results, :tp5_register_volume, :decimal
+    add_column :test_results, :tp5_reference_volume, :decimal
+    add_column :test_results, :tp6_start_read, :decimal
+    add_column :test_results, :tp6_end_read, :decimal
+    add_column :test_results, :tp6_register_volume, :decimal
+    add_column :test_results, :tp6_reference_volume, :decimal
+    add_column :test_results, :tp7_start_read, :decimal
+    add_column :test_results, :tp7_end_read, :decimal
+    add_column :test_results, :tp7_register_volume, :decimal
+    add_column :test_results, :tp7_reference_volume, :decimal
+    add_column :test_results, :tp8_start_read, :decimal
+    add_column :test_results, :tp8_end_read, :decimal
+    add_column :test_results, :tp8_register_volume, :decimal
+    add_column :test_results, :tp8_reference_volume, :decimal
+    add_column :test_results, :tp9_start_read, :decimal
+    add_column :test_results, :tp9_end_read, :decimal
+    add_column :test_results, :tp9_register_volume, :decimal
+    add_column :test_results, :tp9_reference_volume, :decimal
+    add_column :test_results, :tp10_start_read, :decimal
+    add_column :test_results, :tp10_end_read, :decimal
+    add_column :test_results, :tp10_register_volume, :decimal
+    add_column :test_results, :tp10_reference_volume, :decimal
+    add_column :test_results, :tp11_start_read, :decimal
+    add_column :test_results, :tp11_end_read, :decimal
+    add_column :test_results, :tp11_register_volume, :decimal
+    add_column :test_results, :tp11_reference_volume, :decimal
+  end
+end

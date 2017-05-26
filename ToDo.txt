@@ -1,0 +1,69 @@
+1. To make Devise authentication work, need to add config.action_mailer.default_url_options = { host: 'http://your-app-on-heroku.herokuapp.com' } to config/enviroments/production.rb
+2. Fix the styling of devise/registrations/edit.html.erb
+3. Localize jQuery and other libraries
+4. Localize fonts
+
+class UsersController < ApplicationController
+  
+  def index
+    @users = User.all
+  end
+
+  def show
+    @user = User.find(params[:id])
+  end
+
+  def new
+    @user = User.new
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def create
+    # the User in User.new is a call to the class in app/models/user.rb
+    #params stores the form data in a hash
+    @user = User.new(user_params)
+  
+    if @user.save
+    #redirects the user to the show route
+      redirect_to @user
+    else
+    #the create action we use render instead of redirect_to when save returns false. 
+    #The render method is used so that the @article object is passed back to the new template when it is rendered. 
+    #This rendering is done within the same request as the form submission, whereas the redirect_to will tell the browser to issue another request.
+      render 'new'
+    end
+  end
+
+  def update
+    @user = User.find(params[:id])
+
+    if @user.update(user_params)
+      redirect_to @user
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+
+    redirect_to users_path
+  end
+
+  private
+    def user_params
+      params.require(:user).permit(:username, :email, :password)
+    end
+end
+
+#$(document).on "click", ".message a", (e)->
+#  e.preventDefault()
+#  $('form').animate {
+#    height: 'toggle'
+#    opacity: 'toggle'
+#  }, 'slow'
+#return

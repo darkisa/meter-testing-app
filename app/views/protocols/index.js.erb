@@ -1,0 +1,5 @@
+//append the lighbox partial to the body
+$('body').append("<%= j render(:partial => 'layouts/lightbox.html.erb') %>");
+
+//append the table that shows which records to delete to the lighbox
+$('#lightbox').append("<%= j render(:template => 'protocols/index.html.erb') %>");

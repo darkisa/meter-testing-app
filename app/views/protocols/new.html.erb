@@ -1,0 +1,56 @@
+<%= form_for @protocol, :html => {:class => 'form', :id => 'new-protocol'} do |f| %>
+  <h1>Create New Protocol</h1>
+
+  <div class="field">
+    <%= f.text_field :name, autofocus: true, placeholder: 'name'%>
+  </div>
+
+  <div class="field">
+    <%= f.number_field :tp1, placeholder: 'test point 1', step: 'any' %>
+  </div>
+
+  <div class="field">
+    <%= f.number_field :tp2, placeholder: 'test point 2', step: 'any' %>
+  </div>
+
+  <div class="field">
+    <%= f.number_field :tp3, placeholder: 'test point 3', step: 'any' %>
+  </div>
+
+  <div class="field">
+    <%= f.number_field :tp4, placeholder: 'test point 4', step: 'any' %>
+  </div>
+
+  <div class="field">
+    <%= f.number_field :tp5, placeholder: 'test point 5', step: 'any' %>
+  </div>
+
+  <div class="field">
+    <%= f.number_field :tp6, placeholder: 'test point 6', step: 'any' %>
+  </div>
+
+  <div class="field">
+    <%= f.number_field :tp7, placeholder: 'test point 7', step: 'any' %>
+  </div>
+
+  <div class="field">
+    <%= f.number_field :tp8, placeholder: 'test point 8', step: 'any' %>
+  </div>
+
+  <div class="field">
+    <%= f.number_field :tp8, placeholder: 'test point 9', step: 'any' %>
+  </div>
+
+  <div class="field">
+    <%= f.number_field :tp10, placeholder: 'test point 10', step: 'any' %>
+  </div>
+
+  <div class="field">
+    <%= f.number_field :tp11, placeholder: 'test point 11', step: 'any' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Submit", class: 'button' %>
+  </div>
+
+<% end %>
