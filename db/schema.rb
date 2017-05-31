@@ -69,10 +69,6 @@ ActiveRecord::Schema.define(version: 20170525003047) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.decimal "start_read"
-    t.decimal "end_read"
-    t.decimal "register_volume"
-    t.decimal "reference_volume"
     t.decimal "tp1_start_read"
     t.decimal "tp1_end_read"
     t.decimal "tp1_register_volume"
@@ -120,9 +116,10 @@ ActiveRecord::Schema.define(version: 20170525003047) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
     t.string "email", default: "", null: false
-    t.string "password"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "encrypted_password", default: "", null: false
