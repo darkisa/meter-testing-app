@@ -1,5 +1,12 @@
-#class ChangeColumnName < ActiveRecord::Migration[5.1]
-#  def change
-#    rename_column :users, :name, :username
-#  end
-#end
+class CreateUsers < ActiveRecord::Migration[5.1]
+  def change
+      create_table :users do |t|
+      t.string :email
+      t.string :first_name
+      t.string :last_name
+      t.string :title
+
+      t.timestamps
+    end
+  end
+end
