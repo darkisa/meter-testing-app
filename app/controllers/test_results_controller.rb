@@ -1,12 +1,12 @@
 class TestResultsController < ApplicationController
   
   def index
-    @protocols = Protocol.all
   end
 
   def show
     @protocol = Protocol.find(params[:id])
-
+    @user = current_user
+    @test_result = TestResult.new
   end
 
   def new

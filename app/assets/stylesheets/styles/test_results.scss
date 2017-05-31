@@ -1,7 +1,57 @@
-table{
-  width: 600px;
+#test-table-container{
+  display: flex;
+  height: 100%;
+  width: 80%;
+  margin: 0 auto;
+  overflow: auto;
 }
 
-th{
+#test-table{
+  background: white;
+  border-radius:3px;
+  border-collapse: collapse;
+  max-height: 90%;
+  margin: auto;
+  padding:5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  animation: float 5s infinite;
+}
+
+#test-table th{
+  min-width: 60px;
+  padding: 10px 10px 0 10px;
+  color: #D5DDE5;;
+  background: #292c2f;
+  font-size: 16px;
+  font-weight: 100;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  vertical-align: middle;
+}
+
+#test-table input{
   width: 60px;
+  max-height: 60px;
+}
+
+#test-table tr{
+  color: #666B85;
+  font-size: 16px;
+  font-weight: normal;
+  text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+}
+
+#test-table td{
+  background: #FFFFFF;
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px;
+  font-weight: 300;
+  font-size: 18px;
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid #C1C3D1;
+}
+
+#test-table tr:nth-child(odd) td{
+  background:#EBEBEB;
 }

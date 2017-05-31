@@ -12,7 +12,8 @@
         <a href="#">Search</a>
       </nav>
 
-      <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "logout-button") %> 
+      <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "logout-button") %>
+      <span><%= current_user.email %></span>
     </div>
 
   </div>
@@ -28,7 +29,7 @@
           <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Protocol</button>
             <div class="dropdown-menu">
               <% @protocols.each do |protocol| %>
-                <%= link_to(protocol.name, user_test_result_path(user_id: 1, id: protocol.id), class: "dropdown-item") %>
+                <%= link_to(protocol.name, test_result_path(protocol), class: "dropdown-item") %>
               <% end %>
                 <div class="dropdown-divider"></div>
                   <%= link_to('New Protocol', new_protocol_path, remote: true, class: "dropdown-item") %>

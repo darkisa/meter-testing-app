@@ -1,3 +1,8 @@
+html, body {
+  width: 100%;
+  height: 100%; 
+}
+
 body {
   background: #42b6f4; /* fallback for old browsers */
   background: -webkit-linear-gradient(right, #42b6f4, #8DC26F);
@@ -6,5 +11,5 @@ body {
   background: linear-gradient(to left, #42b6f4, #8DC26F);
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;      
+  -moz-osx-font-smoothing: grayscale;     
 }

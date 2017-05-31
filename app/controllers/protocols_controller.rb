@@ -2,7 +2,6 @@ class ProtocolsController < ApplicationController
   #protect_from_forgery except: :index
   
   def index
-    @protocols = Protocol.all
   end
 
   def show
