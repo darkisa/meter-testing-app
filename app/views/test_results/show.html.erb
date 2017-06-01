@@ -100,6 +100,27 @@
         <% end %>
       </tr>
 
+      <%# for collecting reference volume %>
+      <tr>
+        <td>Reference Volume</td>
+        <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
+          <% if value == nil or attribute == "compound" %>
+            <% break %>
+           <% end %>
+          <td class="reference-volume"></td>
+        <% end %>
+
+      <%# for calculating the accuracy of each test point%>
+      <tr>
+        <td>Accuracy</td>
+        <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
+          <% if value == nil or attribute == "compound" %>
+            <% break %>
+           <% end %>
+          <td class="accuracy"></td>
+        <% end %>
+        
+      </tr>
     </tbody>
   </table>
 </div>
