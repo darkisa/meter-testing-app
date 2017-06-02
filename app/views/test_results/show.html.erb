@@ -46,7 +46,7 @@
       </tr>
 
       <%# for collecting the meter start read %>
-      <tr>
+      <tr class="start-read">
         <td>Start Read</td>
         <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
           <% if value == nil or attribute == "compound" %>
@@ -57,7 +57,7 @@
       </tr>
 
       <%# for collecting the meter ending read %>
-      <tr>
+      <tr class="end-read">
         <td>End Read</td>
         <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
           <% if value == nil or attribute == "compound" %>
@@ -68,7 +68,7 @@
       </tr>
 
       <%# total volume %>
-      <tr>
+      <tr class="volume">
         <td>Volume</td>
         <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
           <% if value == nil or attribute == "compound" %>
@@ -79,7 +79,7 @@
       </tr>
 
       <%# for collecting reference meter start read %>
-      <tr>
+      <tr class="ref-start-read">
         <td>Reference Start Read</td>
         <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
           <% if value == nil or attribute == "compound" %>
@@ -90,7 +90,7 @@
       </tr>
 
       <%# for collecting reference meter end read %>
-      <tr>
+      <tr class="ref-end-read">
         <td>Reference End Read</td>
         <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
           <% if value == nil or attribute == "compound" %>
@@ -101,7 +101,7 @@
       </tr>
 
       <%# for collecting reference volume %>
-      <tr>
+      <tr class="ref-volume">
         <td>Reference Volume</td>
         <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
           <% if value == nil or attribute == "compound" %>
