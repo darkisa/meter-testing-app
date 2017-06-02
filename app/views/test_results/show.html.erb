@@ -46,29 +46,29 @@
       </tr>
 
       <%# for collecting the meter start read %>
-      <tr class="start-read">
+      <tr id="start-read">
         <td>Start Read</td>
         <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
           <% if value == nil or attribute == "compound" %>
             <% break %>
            <% end %>
-          <td><%= number_field "tp#{index + 1}_start_read".to_sym, nil, step: "any" %></td>
+          <td><%= number_field "start_read", "tp#{index + 1}", step: "any" %></td>
         <% end %>
       </tr>
 
       <%# for collecting the meter ending read %>
-      <tr class="end-read">
+      <tr id="end-read">
         <td>End Read</td>
         <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
           <% if value == nil or attribute == "compound" %>
             <% break %>
            <% end %>
-          <td><%= number_field "tp#{index + 1}_end_read".to_sym, nil, step: "any" %></td>
+          <td><%= number_field "end_read", "tp#{index + 1}", step: "any" %></td>
         <% end %>
       </tr>
 
       <%# total volume %>
-      <tr class="volume">
+      <tr id="volume">
         <td>Volume</td>
         <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
           <% if value == nil or attribute == "compound" %>
@@ -79,29 +79,29 @@
       </tr>
 
       <%# for collecting reference meter start read %>
-      <tr class="ref-start-read">
+      <tr id="ref-start-read">
         <td>Reference Start Read</td>
         <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
           <% if value == nil or attribute == "compound" %>
             <% break %>
            <% end %>
-          <td><%= number_field "tp#{index + 1}_ref_start_read".to_sym, nil, step: "any" %></td>
+          <td><%= number_field "ref_start_read", "tp#{index + 1}", step: "any" %></td>
         <% end %>
       </tr>
 
       <%# for collecting reference meter end read %>
-      <tr class="ref-end-read">
+      <tr id="ref-end-read">
         <td>Reference End Read</td>
         <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
           <% if value == nil or attribute == "compound" %>
             <% break %>
            <% end %>
-          <td><%= number_field "tp#{index + 1}_ref_end_read".to_sym, nil, step: "any" %></td>
+          <td><%= number_field "ref_end_read", "tp#{index + 1}", step: "any" %></td>
         <% end %>
       </tr>
 
       <%# for collecting reference volume %>
-      <tr class="ref-volume">
+      <tr id="ref-volume">
         <td>Reference Volume</td>
         <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
           <% if value == nil or attribute == "compound" %>
@@ -111,7 +111,7 @@
         <% end %>
 
       <%# for calculating the accuracy of each test point%>
-      <tr>
+      <tr id="accuracy">
         <td>Accuracy</td>
         <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
           <% if value == nil or attribute == "compound" %>
