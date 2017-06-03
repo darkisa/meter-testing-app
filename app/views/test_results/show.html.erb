@@ -1,126 +1,126 @@
 <%= render "layouts/header" %>
 
-<div id="test-table-container">
+  <div id="test-table-container">
 
-  <table id="test-table">
+    <table id="test-table">
 
-    <thead>
+      <thead>
 
-      <%# iterate over the protocol object's attributes and produce the first row 
-      of the header %>
-      <tr>  
-        <th rowspan="2"><%= @protocol.name %></th>
-        <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
-          <% if value == nil or attribute == "compound" %>
-            <% break %>
+        <%# iterate over the protocol object's attributes and produce the first row 
+        of the header %>
+        <tr>  
+          <th rowspan="2"><%= @protocol.name %></th>
+          <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
+            <% if value == nil or attribute == "compound" %>
+              <% break %>
+            <% end %>
+            <th><%= "Test Point #{index + 1}" %></th>
           <% end %>
-          <th><%= "Test Point #{index + 1}" %></th>
-        <% end %>
-      </tr>
+        </tr>
 
-      <%# iterate over the protocol object's attributes and produce the second row 
-      of the header that has the GPMs %>
-      <tr>
-        <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
-          <% if value == nil or attribute == "compound" %>
-            <% break %>
+        <%# iterate over the protocol object's attributes and produce the second row 
+        of the header that has the GPMs %>
+        <tr>
+          <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
+            <% if value == nil or attribute == "compound" %>
+              <% break %>
+            <% end %>
+            <th><%= value %></th>
           <% end %>
-          <th><%= value %></th>
-        <% end %>
-      </tr>
+        </tr>
 
-    </thead>
+      </thead>
 
-    <tbody>
+      <tbody>
 
-      <%# iterate over the protocol object's attributes and specify whether its a
-      main line or secondary line %>
-      <tr>
-        <th></th>
-        <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
-          <% if value == nil or attribute == "compound" %>
-            <% break %>
-           <% end %>
-          <th>Main</th>
-        <% end %>
-      </tr>
+        <%# iterate over the protocol object's attributes and specify whether its a
+        main line or secondary line %>
+        <tr>
+          <th></th>
+          <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
+            <% if value == nil or attribute == "compound" %>
+              <% break %>
+             <% end %>
+            <th>Main</th>
+          <% end %>
+        </tr>
 
-      <%# for collecting the meter start read %>
-      <tr id="start-read">
-        <td>Start Read</td>
-        <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
-          <% if value == nil or attribute == "compound" %>
-            <% break %>
-           <% end %>
-          <td><%= number_field "start_read", "tp#{index + 1}", step: "any" %></td>
-        <% end %>
-      </tr>
+        <%# for collecting the meter start read %>
+        <tr id="start-read">
+          <td>Start Read</td>
+          <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
+            <% if value == nil or attribute == "compound" %>
+              <% break %>
+             <% end %>
+            <td><%= number_field "start_read", "tp#{index + 1}", step: "any" %></td>
+          <% end %>
+        </tr>
 
-      <%# for collecting the meter ending read %>
-      <tr id="end-read">
-        <td>End Read</td>
-        <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
-          <% if value == nil or attribute == "compound" %>
-            <% break %>
-           <% end %>
-          <td><%= number_field "end_read", "tp#{index + 1}", step: "any" %></td>
-        <% end %>
-      </tr>
+        <%# for collecting the meter ending read %>
+        <tr id="end-read">
+          <td>End Read</td>
+          <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
+            <% if value == nil or attribute == "compound" %>
+              <% break %>
+             <% end %>
+            <td><%= number_field "end_read", "tp#{index + 1}", step: "any" %></td>
+          <% end %>
+        </tr>
 
-      <%# total volume %>
-      <tr id="volume">
-        <td>Volume</td>
-        <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
-          <% if value == nil or attribute == "compound" %>
-            <% break %>
-           <% end %>
-          <td class="register-volume"></td>
-        <% end %>
-      </tr>
+        <%# total volume %>
+        <tr id="volume">
+          <td>Volume</td>
+          <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
+            <% if value == nil or attribute == "compound" %>
+              <% break %>
+             <% end %>
+            <td class="register-volume"></td>
+          <% end %>
+        </tr>
 
-      <%# for collecting reference meter start read %>
-      <tr id="ref-start-read">
-        <td>Reference Start Read</td>
-        <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
-          <% if value == nil or attribute == "compound" %>
-            <% break %>
-           <% end %>
-          <td><%= number_field "ref_start_read", "tp#{index + 1}", step: "any" %></td>
-        <% end %>
-      </tr>
+        <%# for collecting reference meter start read %>
+        <tr id="ref-start-read">
+          <td>Reference Start Read</td>
+          <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
+            <% if value == nil or attribute == "compound" %>
+              <% break %>
+             <% end %>
+            <td><%= number_field "ref_start_read", "tp#{index + 1}", step: "any" %></td>
+          <% end %>
+        </tr>
 
-      <%# for collecting reference meter end read %>
-      <tr id="ref-end-read">
-        <td>Reference End Read</td>
-        <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
-          <% if value == nil or attribute == "compound" %>
-            <% break %>
-           <% end %>
-          <td><%= number_field "ref_end_read", "tp#{index + 1}", step: "any" %></td>
-        <% end %>
-      </tr>
+        <%# for collecting reference meter end read %>
+        <tr id="ref-end-read">
+          <td>Reference End Read</td>
+          <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
+            <% if value == nil or attribute == "compound" %>
+              <% break %>
+             <% end %>
+            <td><%= number_field "ref_end_read", "tp#{index + 1}", step: "any" %></td>
+          <% end %>
+        </tr>
 
-      <%# for collecting reference volume %>
-      <tr id="ref-volume">
-        <td>Reference Volume</td>
-        <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
-          <% if value == nil or attribute == "compound" %>
-            <% break %>
-           <% end %>
-          <td class="reference-volume"></td>
-        <% end %>
+        <%# for collecting reference volume %>
+        <tr id="ref-volume">
+          <td>Reference Volume</td>
+          <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
+            <% if value == nil or attribute == "compound" %>
+              <% break %>
+             <% end %>
+            <td class="reference-volume"></td>
+          <% end %>
 
-      <%# for calculating the accuracy of each test point%>
-      <tr id="accuracy">
-        <td>Accuracy</td>
-        <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
-          <% if value == nil or attribute == "compound" %>
-            <% break %>
-           <% end %>
-          <td class="accuracy"></td>
-        <% end %>
-        
-      </tr>
-    </tbody>
-  </table>
-</div>
+        <%# for calculating the accuracy of each test point%>
+        <tr id="accuracy">
+          <td>Accuracy</td>
+          <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
+            <% if value == nil or attribute == "compound" %>
+              <% break %>
+             <% end %>
+            <td class="accuracy"></td>
+          <% end %>
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>
