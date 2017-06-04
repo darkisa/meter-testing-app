@@ -1,4 +1,4 @@
-#calculate the volume of the corresponding column. No return 
+#REFRACTOR calculate the volume of the corresponding column. No return 
 calculate_volume = (object, index) ->
   row = object.closest("tr")
 
@@ -6,17 +6,18 @@ calculate_volume = (object, index) ->
     start_read = $('#start-read').children().eq(index).children().val()
     end_read = $('#end-read').children().eq(index).children().val()
     volume = end_read - start_read
-    $("#volume").children().eq(index).html(volume)
+    $("#volume").children().eq(index).children().val(volume)
   else if row.attr('id') == 'ref-start-read' or row.attr('id') == 'ref-end-read'
     start_read = $('#ref-start-read').children().eq(index).children().val()
     end_read = $('#ref-end-read').children().eq(index).children().val()
     volume = end_read - start_read
-    $("#ref-volume").children().eq(index).html(volume)
+    $("#ref-volume").children().eq(index).children().val(volume)
 
-#calcualte the accuracy of the corresponding column and return the value if its not infinity or NaN
+
+#REFRACTOR calcualte the accuracy of the corresponding column and return the value if its not infinity or NaN
 calculate_accuracy = (index) ->
-  register_volume = $("#volume").children().eq(index).html()
-  reference_volume = $("#ref-volume").children().eq(index).html()
+  register_volume = $("#volume").children().eq(index).children().val()
+  reference_volume = $("#ref-volume").children().eq(index).children().val()
   accuracy = register_volume / reference_volume
   if isFinite(accuracy)
     return accuracy.toFixed(3)
@@ -24,10 +25,10 @@ calculate_accuracy = (index) ->
     return 
 
 #event handlers
-$(document).on 'turbolinks:load', ()->
+$(document).on "turbolinks:load", ()->
 
   #expand the second header when the user selects test 
-  $('#main-menu a').on "click", (e)->
+  $("#main-menu a").click (e)->
     e.preventDefault()
     if @text == 'Test' 
       $(".header-second-bar").show()
@@ -35,11 +36,16 @@ $(document).on 'turbolinks:load', ()->
       $(".header-second-bar").hide()
 
   #calculate the total volume for the reference or baseline meter and calculate the accuracy
-  $('#test-table input').on "change", (e)->
+  $("#test-table input").change (e)->
     object = $(this) #set this to object for cleaner code
     index = object.parent().index() #get the column number of what needs to be altered
     calculate_volume(object, index) 
     accuracy = calculate_accuracy(index)
-    $("#accuracy").children().eq(index).html(accuracy) #assign the returned accuracy to the appropriate cell
+    $("#accuracy").children().eq(index).children().val(accuracy) #assign the returned accuracy to the appropriate cell
+
+  $("#test-result-form").submit (e)->
+    e.preventDefault()
+    console.log $(this).serializeArray();
+  return false
 
 return

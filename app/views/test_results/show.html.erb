@@ -1,6 +1,8 @@
 <%= render "layouts/header" %>
 
-  <div id="test-table-container">
+<div id="test-table-container">
+
+  <%= form_for @test_result, :html => {:id => "test-result-form"} do |f| %>
 
     <table id="test-table">
 
@@ -52,7 +54,7 @@
             <% if value == nil or attribute == "compound" %>
               <% break %>
              <% end %>
-            <td><%= number_field "start_read", "tp#{index + 1}", step: "any" %></td>
+            <td><%= f.number_field "tp#{index + 1}_start_read".to_sym, step: "any" %></td>
           <% end %>
         </tr>
 
@@ -63,7 +65,7 @@
             <% if value == nil or attribute == "compound" %>
               <% break %>
              <% end %>
-            <td><%= number_field "end_read", "tp#{index + 1}", step: "any" %></td>
+            <td><%= number_field "tp#{index + 1}_end_read".to_sym, step: "any" %></td>
           <% end %>
         </tr>
 
@@ -74,7 +76,7 @@
             <% if value == nil or attribute == "compound" %>
               <% break %>
              <% end %>
-            <td class="register-volume"></td>
+            <td class="register-volume"><%= f.number_field "tp#{index + 1}_register_volume".to_sym, :class => "no-entry"  %></td>
           <% end %>
         </tr>
 
@@ -85,7 +87,7 @@
             <% if value == nil or attribute == "compound" %>
               <% break %>
              <% end %>
-            <td><%= number_field "ref_start_read", "tp#{index + 1}", step: "any" %></td>
+            <td><%= number_field_tag "ref_start_read_#{index + 1}", nil, step: "any" %></td>
           <% end %>
         </tr>
 
@@ -96,7 +98,7 @@
             <% if value == nil or attribute == "compound" %>
               <% break %>
              <% end %>
-            <td><%= number_field "ref_end_read", "tp#{index + 1}", step: "any" %></td>
+            <td><%= number_field_tag "ref_end_read#{index + 1}", nil, step: "any" %></td>
           <% end %>
         </tr>
 
@@ -107,7 +109,7 @@
             <% if value == nil or attribute == "compound" %>
               <% break %>
              <% end %>
-            <td class="reference-volume"></td>
+            <td class="reference-volume"><%= f.number_field "tp#{index + 1}_reference_volume".to_sym, :class => "no-entry"  %></td>
           <% end %>
 
         <%# for calculating the accuracy of each test point%>
@@ -117,10 +119,12 @@
             <% if value == nil or attribute == "compound" %>
               <% break %>
              <% end %>
-            <td class="accuracy"></td>
+            <td class="accuracy"><%= f.number_field "tp#{index + 1}_accuracy".to_sym, :class => "no-entry"  %></td>
           <% end %>
-          
         </tr>
+
       </tbody>
     </table>
-  </div>
+    <%= f.submit "Submit" %>
+  <% end %>
+</div>
