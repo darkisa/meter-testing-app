@@ -4,6 +4,8 @@
   width: 80%;
   margin: 0 auto;
   overflow: auto;
+  align-items: center;
+  justify-content: center;
 }
 
 #test-table{
@@ -54,4 +56,10 @@
 
 #test-table tr:nth-child(odd) td{
   background:#EBEBEB;
+}
+
+.no-entry {
+  background-color: transparent;
+  border: none;
+  outline: none;
 }

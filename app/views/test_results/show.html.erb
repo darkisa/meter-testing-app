@@ -76,8 +76,10 @@
             <% if value == nil or attribute == "compound" %>
               <% break %>
              <% end %>
-            <td class="register-volume"><%= f.number_field "tp#{index + 1}_register_volume".to_sym, :class => "no-entry"  %></td>
-          <% end %>
+            <td class="register-volume">
+              <%= f.number_field "tp#{index + 1}_register_volume".to_sym, :class => "no-entry", :disabled => true  %>
+            </td>
+            <% end %>
         </tr>
 
         <%# for collecting reference meter start read %>
@@ -109,7 +111,9 @@
             <% if value == nil or attribute == "compound" %>
               <% break %>
              <% end %>
-            <td class="reference-volume"><%= f.number_field "tp#{index + 1}_reference_volume".to_sym, :class => "no-entry"  %></td>
+            <td class="reference-volume">
+              <%= f.number_field "tp#{index + 1}_reference_volume".to_sym, :class => "no-entry", :disabled => true  %>
+            </td>
           <% end %>
 
         <%# for calculating the accuracy of each test point%>
@@ -119,7 +123,9 @@
             <% if value == nil or attribute == "compound" %>
               <% break %>
              <% end %>
-            <td class="accuracy"><%= f.number_field "tp#{index + 1}_accuracy".to_sym, :class => "no-entry"  %></td>
+            <td class="accuracy">
+              <%= f.number_field "tp#{index + 1}_accuracy".to_sym, :class => "no-entry", :disabled => true  %>
+            </td>
           <% end %>
         </tr>
 
