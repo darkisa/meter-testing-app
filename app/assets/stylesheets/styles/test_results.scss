@@ -1,19 +1,43 @@
-#test-table-container{
+/*------------Overall Form----------------------------*/
+#form-container{
   display: flex;
-  height: 100%;
   width: 80%;
   margin: 0 auto;
   overflow: auto;
   align-items: center;
   justify-content: center;
+  padding: 20px;
 }
 
+#test_result_comments {
+  dispaly: block;
+  margin-top: 20px;
+  width: 100%;
+  height: 100px;
+}
+
+input[type="submit"]{
+  background-color: #292c2f;
+  margin-top: 20px;
+}
+
+/*-------Meta Data Section of Test Form--------------*/
+#test-form {
+  background-color: #ebebeb;
+  padding: 20px;
+}
+
+#test-form .form-group {
+  max-width: 300px;
+}
+
+/*-------------Test Table Section of Test Form--------*/
 #test-table{
   background: white;
   border-radius:3px;
   border-collapse: collapse;
   max-height: 90%;
-  margin: auto;
+  margin: 20px auto;
   padding:5px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   animation: float 5s infinite;
@@ -58,6 +82,7 @@
   background:#EBEBEB;
 }
 
+/*---------- Disable certain inputs-----------------*/
 .no-entry {
   background-color: transparent;
   border: none;

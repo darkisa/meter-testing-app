@@ -16,6 +16,15 @@ class TestResultsController < ApplicationController
   end
 
   def create
+    @test_result = TestResult.new(test_result_params)
+    @test_result.user_id = current_user.id
+
+    if @test_result.save
+      render 'create'
+    else
+      render 'create'
+    end
+
   end
 
   def update
@@ -25,8 +34,8 @@ class TestResultsController < ApplicationController
   end
 
   private
-    def user_params
-      params.require(:user).permit(:username, :email, :password)
+    def test_result_params
+      params.require(:test_result).permit!
     end
 
 end

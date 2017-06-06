@@ -38,7 +38,7 @@ gem 'jquery-turbolinks'
 gem 'devise'
 
 #bootstrap
-gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bootstrap-sass', '~> 3.0'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'

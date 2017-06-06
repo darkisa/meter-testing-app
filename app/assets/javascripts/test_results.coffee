@@ -43,9 +43,14 @@ $(document).on "turbolinks:load", ()->
     accuracy = calculate_accuracy(index)
     $("#accuracy").children().eq(index).children().val(accuracy) #assign the returned accuracy to the appropriate cell
 
-  $("#test-result-form").submit (e)->
-    e.preventDefault()
-    console.log $(this).serializeArray();
-  return false
+
+#set the current time on button click
+  $(".current-time-button").click ()->
+    time = new Date()
+    hour = time.getHours()
+    minute = time.getMinutes()
+    second = time.getSeconds()
+    value = hour + ':' + minute #+ ':' + second
+    $(this).parent().next().val(value)
 
 return

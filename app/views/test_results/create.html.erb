@@ -1,3 +1,5 @@
-<pre>
-  <%= params[:start_read][:tp1] %>
-</pre>
+<ul>
+  <% @test_result.attributes.each do |key, value| %>
+    <li><%= "#{key}: #{value}"  %></li>
+  <% end %>
+</ul>
