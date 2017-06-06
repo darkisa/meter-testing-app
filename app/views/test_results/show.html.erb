@@ -9,12 +9,20 @@
     <div id="test-form">
 
       <div class="form-group">
-        <%= label_tag :test_date, "Test Date" %>
+        <%= f.label :test_type, "Test Type" %>
+        <select class="form-contorl">
+          <option>1</option>
+          <option>2</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :test_date, "Test Date" %>
         <%= f.date_field :test_date, :class => "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= label_tag :start_time, "Start Time" %>
+        <%= f.label :start_time, "Start Time" %>
         <div class="input-group">
           <span class="input-group-btn">
             <%= button_tag "", type: "button", :class => "btn btn-default current-time-button" do %>
@@ -26,7 +34,7 @@
       </div>
 
       <div class="form-group">
-        <%= label_tag :end_time, "End Time"%>
+        <%= f.label :end_time, "End Time"%>
         <div class="input-group">
           <span class="input-group-btn">
             <%= button_tag "", type: "button", :class => "btn btn-default current-time-button"  do %>
@@ -38,27 +46,32 @@
       </div>
 
       <div class="form-group">
-        <%= label_tag :meter_size, "Meter Size" %>
+        <%= f.label :meter_size, "Meter Size" %>
         <%= f.number_field :meter_size, :class => "form-control", step: "any" %>
       </div>
 
       <div class="form-group">
-        <%= label_tag :meter_type, "Meter Type" %>
+        <%= f.label :meter_type, "Meter Type" %>
         <%= f.text_field :meter_type, :class => "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= label_tag :meter_brand, "Meter Brand" %>
+        <%= f.label :meter_brand, "Meter Brand" %>
         <%= f.text_field :meter_brand, :class => "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= label_tag :serial_no, "Serial No" %>
+        <%= f.label :model, "Meter Model" %>
+        <%= f.text_field :model, :class => "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :serial_no, "Serial No" %>
         <%= f.text_field :serial_no, :class => "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= label_tag :account, "Account" %>
+        <%= f.label :account, "Account" %>
         <%= f.text_field :account, :class => "form-control" %>
       </div>
 
