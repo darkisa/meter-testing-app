@@ -6,7 +6,7 @@ class CreateTestResults < ActiveRecord::Migration[5.1]
       t.date :test_date
       t.time :start_time
       t.time :end_time
-      t.string :operator
+      t.string :model
       t.string :test_type
       t.string :meter_size
       t.string :meter_type
