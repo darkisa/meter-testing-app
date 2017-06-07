@@ -8,12 +8,21 @@
 
     <div id="test-form">
 
-      <div class="form-group">
-        <%= f.label :test_type, "Test Type" %>
-        <select class="form-contorl">
-          <option>1</option>
-          <option>2</option>
-        </select>
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Test Type
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+          <% @type.each do |type| %>
+            <li><%= link_to(type.test_type, "#", class: "dropdown-item") %></li>
+          <% end %>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to('New Test Type', "#", remote: true) %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to('Delete Test Type', "#", remote: true) %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to('Edit Test Type', "#", remote: true) %></li>
+        </ul>
       </div>
 
       <div class="form-group">

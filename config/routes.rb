@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   end
 end
 
+  get '/test_types', to: 'tests_types#index' 
+  
   get 'sessions/new'
 
   resources :users

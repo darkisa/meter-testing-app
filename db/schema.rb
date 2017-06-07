@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170525003047) do
+ActiveRecord::Schema.define(version: 20170606234214) do
 
   create_table "protocols", force: :cascade do |t|
     t.float "tp1"
@@ -113,6 +113,12 @@ ActiveRecord::Schema.define(version: 20170525003047) do
     t.decimal "tp11_end_read"
     t.decimal "tp11_register_volume"
     t.decimal "tp11_reference_volume"
+  end
+
+  create_table "test_types", force: :cascade do |t|
+    t.string "test_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

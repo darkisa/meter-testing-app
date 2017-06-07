@@ -25,30 +25,34 @@
       <nav id="secondary-menu">
 
     <!-- Protocol dropdown button and selection -->
-        <div class="btn-group">
-          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Protocol</button>
-            <div class="dropdown-menu">
-              <% @protocols.each do |protocol| %>
-                <%= link_to(protocol.name, test_result_path(protocol), class: "dropdown-item") %>
-              <% end %>
-                <div class="dropdown-divider"></div>
-                  <%= link_to('New Protocol', new_protocol_path, remote: true, class: "dropdown-item") %>
-                <div class="dropdown-divider"></div>
-                  <%= link_to('Delete Protocol', protocols_path, remote: true, class: "dropdown-item") %>
-                <div class="dropdown-divider"></div>
-                  <%= link_to('Edit Protocol', protocols_path, remote: true, class: "dropdown-item") %>
-            </div>
-        </div>
+      <div class="btn-group">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Test Name
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+          <% @protocols.each do |protocol| %>
+            <li><%= link_to(protocol.name, test_result_path(protocol), class: "dropdown-item") %></li>
+          <% end %>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to('New Protocol', new_protocol_path, remote: true, class: "dropdown-item") %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to('Delete Protocol', protocols_path, remote: true, class: "dropdown-item") %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to('Edit Protocol', protocols_path, remote: true, class: "dropdown-item") %></li>
+        </ul>
+      </div>
 
     <!-- Adjustment factor dropdown button and selection -->
-        <div class="btn-group">
-          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Adjustment Factor</button>
-            <div class="dropdown-menu">
-              <!-- INSERT ADJUSMENT FACTORS -->
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" id="create-protocol">Create New Protocol</a>
-            </div>
-        </div>
+      <div class="btn-group">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Adjustment Factor
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+            <!-- INSERT ADJUSMENT FACTORS -->
+          <li role="separator" class="divider"></li>
+          <li><a class="dropdown-item" id="create-protocol">Create New Protocol</a></li>
+        </ul>
+      </div>
 
       </nav>
 

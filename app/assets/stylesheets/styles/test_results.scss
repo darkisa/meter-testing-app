@@ -31,6 +31,18 @@ input[type="submit"]{
   max-width: 300px;
 }
 
+#test-form{
+  .dropdown{
+    margin-bottom: 15px;
+  }
+  .btn{
+    font-size: 14px;
+    font-family: "Roboto", sans-serif;
+    color: rgb(51,51,51);
+    font-weight: bold;
+  }
+}
+
 /*-------------Test Table Section of Test Form--------*/
 #test-table{
   background: white;
@@ -88,3 +100,4 @@ input[type="submit"]{
   border: none;
   outline: none;
 }
+
