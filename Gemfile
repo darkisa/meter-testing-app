@@ -40,6 +40,8 @@ gem 'devise'
 #bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
 
+gem 'rake', '< 11.0'
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
 end
