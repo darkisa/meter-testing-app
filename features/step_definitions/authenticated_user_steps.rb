@@ -1,3 +1,4 @@
+# Test authenticate user
 Given /^(?:|I )am an authenticated user/ do
   email = 'test@example.com'
   password = 'password'

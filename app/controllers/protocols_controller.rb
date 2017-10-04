@@ -1,5 +1,5 @@
 class ProtocolsController < ApplicationController
-  #protect_from_forgery except: :index
+  protect_from_forgery except: :index
   
   def index
   end
@@ -18,8 +18,10 @@ class ProtocolsController < ApplicationController
   def create
     @protocol = Protocol.new(protocol_params)
 
-    @protocol.save
-    redirect_back(fallback_location: 'test_results#index')
+    if @protocol.save!
+      flash[:notice] = "Protocol succesfully created"
+      redirect_back(fallback_location: 'test_results#index')
+    end
   end
 
   def update
