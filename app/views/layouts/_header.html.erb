@@ -34,11 +34,11 @@
             <li><%= link_to(protocol.name, test_result_path(protocol), class: "dropdown-item") %></li>
           <% end %>
             <li role="separator" class="divider"></li>
-            <li><%= link_to('New Protocol', new_protocol_path, remote: true, class: "dropdown-item") %></li>
+            <li><%= link_to('New Protocol', new_protocol_path, remote: false, class: "dropdown-item") %></li>
             <li role="separator" class="divider"></li>
-            <li><%= link_to('Delete Protocol', protocols_path, remote: true, class: "dropdown-item") %></li>
+            <li><%= link_to('Delete Protocol', protocols_path, remote: false, class: "dropdown-item") %></li>
             <li role="separator" class="divider"></li>
-            <li><%= link_to('Edit Protocol', protocols_path, remote: true, class: "dropdown-item") %></li>
+            <li><%= link_to('Edit Protocol', protocols_path, remote: false, class: "dropdown-item") %></li>
         </ul>
       </div>
 
