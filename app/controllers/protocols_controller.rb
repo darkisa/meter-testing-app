@@ -18,9 +18,12 @@ class ProtocolsController < ApplicationController
   def create
     @protocol = Protocol.new(protocol_params)
 
-    if @protocol.save!
-      flash[:notice] = "Protocol succesfully created"
+    if @protocol.save
+      flash[:notice] = "New protocol added"
       redirect_back(fallback_location: 'test_results#index')
+    else
+      flash[:notice] = @protocol.errors[:name]
+      render 'new'
     end
   end
 
