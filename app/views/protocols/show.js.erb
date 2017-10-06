@@ -1,9 +1,0 @@
-//remove the table already appended to the form
-$('#lightbox table').remove();
-
-//append the form to the lighbox
-$('#lightbox').append("<%= j render(:template => 'protocols/new.html.erb') %>");
-
-//change the heading and button of the from to edit
-$('#new-protocol h1').text('Edit Protocol');
-$('#new-protocol input[type="submit"]').prop('value', 'Update');

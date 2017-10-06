@@ -8,9 +8,6 @@ Given /^(?:|I )am an authenticated user/ do
   fill_in 'user_email', :with => 'test@example.com'
   fill_in 'user_password', :with => 'password'
   click_button 'Login'
-  if page.respond_to? :should
-    page.should have_content('test@example.com')
-  else
-    assert page.has_content?('test@example.com')
-  end
+  
+  page.should have_content('test@example.com')
 end
