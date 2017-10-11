@@ -4,13 +4,13 @@ class TestResultsController < ApplicationController
   end
 
   def show
-    @protocol = Protocol.find(params[:id])
-    @type = TestType.all
-    @user = current_user
-    @test_result = TestResult.new
   end
 
   def new
+    @test_result = TestResult.new
+    @protocol = Protocol.find(params[:id])
+    @type = TestType.all
+    @user = current_user
   end
 
   def edit

@@ -31,7 +31,7 @@
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
           <% @protocols.each do |protocol| %>
-            <li><%= link_to(protocol.name, test_result_path(protocol), class: "dropdown-item") %></li>
+            <li><%= link_to(protocol.name, new_test_result_path(:id => protocol.id), class: "dropdown-item") %></li>
           <% end %>
             <li role="separator" class="divider"></li>
             <li><%= link_to('New Protocol', new_protocol_path, remote: false, class: "dropdown-item") %></li>

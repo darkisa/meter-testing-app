@@ -49,6 +49,7 @@ class ProtocolsController < ApplicationController
     @protocol = Protocol.find(params[:id])
 
     @protocol.destroy
+    flash[:notice] = 'Protocol has been deleted'
     redirect_back(fallback_location: 'test_results#index')
   end
 

@@ -1,0 +1,12 @@
+<%= form_for @test_type, :html => {:class => 'form', :id => 'new-protocol'} do |f| %>
+  <h1>Create New Test Type</h1>
+
+  <div class="field">
+    <%= f.text_field :test_type, autofocus: true, placeholder: 'name'%>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Submit", class: 'button' %>
+  </div>
+
+<% end %>
