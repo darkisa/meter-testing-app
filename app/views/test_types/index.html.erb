@@ -1,0 +1,15 @@
+<table class='table'>
+  <tr>
+    <td>Test Type</td> 
+    <td>Delete</td>
+    <td>Edit</td>
+  </tr>
+  
+  <% @test_types.each do |type| %>
+    <tr>
+      <td><%= type.test_type %></td>
+      <td><%= link_to('Delete', test_type_path(type), :method => :delete) %></td>
+      <td><%= link_to('Edit', edit_test_type_path(type)) %></td>
+    </tr>
+  <% end %>
+</table>

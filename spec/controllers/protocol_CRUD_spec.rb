@@ -11,8 +11,11 @@ describe ProtocolsController do
 
   describe '#create' do
     it 'fails to save because the name already exists' do
-      params = FactoryGirl.attributes_for(:protocol)
-      post :create, :params => { :protocol => params }
+      params = { :name => 'test' } 
+      # params = FactoryGirl.attributes_for(:protocol)
+      Protocol.any_instance.stub(:save).and_return(false)
+      post :create, :params => { :protocol =>  params }
+      expect(flash[:notice]).not_to be_empty
     end
   end
 

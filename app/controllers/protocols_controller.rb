@@ -2,7 +2,7 @@ class ProtocolsController < ApplicationController
   protect_from_forgery except: :index
   
   def index
-    # just used to render the view
+    @protocols = Protocol.all
   end
 
   def show
@@ -13,12 +13,16 @@ class ProtocolsController < ApplicationController
     @protocol = Protocol.new
     @heading = 'New Protocol'
     @submit_text = 'Submit'
+
+    render 'protocols/_protocol_form'
   end
 
   def edit
     @protocol = Protocol.find(params[:id])
     @heading = 'Edit Protocol'
     @submit_text = 'Update'
+
+    render 'protocols/_protocol_form'
   end
 
   def create
@@ -29,7 +33,7 @@ class ProtocolsController < ApplicationController
       redirect_back(fallback_location: 'test_results#index')
     else
       flash[:notice] = @protocol.errors[:name]
-      render 'new'
+      render 'protocols/_protocol_form'
     end
   end
 

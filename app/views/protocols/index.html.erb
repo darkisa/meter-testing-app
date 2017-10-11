@@ -1,4 +1,4 @@
-<table class="table">
+<table class='table'>
   <tr>
     <th>Protocol</th>
     <th>Delete</th>
@@ -8,8 +8,8 @@
   <% @protocols.each do |protocol| %>
     <tr>
       <td><%= protocol.name %></td>
-      <td><%= link_to('Delete', protocol_path(protocol), :method => :delete, remote: false) %></td>
-      <td><%= link_to('Edit', edit_protocol_path(protocol), :method => :get, remote: false) %></td>
+      <td><%= link_to('Delete', protocol_path(protocol), :method => :delete) %></td>
+      <td><%= link_to('Edit', edit_protocol_path(protocol)) %></td>
     </tr>
   <% end %>
 </table>

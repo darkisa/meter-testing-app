@@ -17,9 +17,9 @@
             <li role="separator" class="divider"></li>
             <li><%= link_to('New Test Type', new_test_type_path) %></li>
             <li role="separator" class="divider"></li>
-            <li><%= link_to('Delete Test Type', "#") %></li>
+            <li><%= link_to('Delete Test Type', test_types_path, :method => :get) %></li>
             <li role="separator" class="divider"></li>
-            <li><%= link_to('Edit Test Type', "#") %></li>
+            <li><%= link_to('Edit Test Type', test_types_path, :method => :get) %></li>
         </ul>
       </div>
 
