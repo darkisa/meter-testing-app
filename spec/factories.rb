@@ -1,4 +1,11 @@
 FactoryGirl.define do
+  factory :task do
+    user_id "MyString"
+    serial_no "MyString"
+    account "MyString"
+    assign_to "MyString"
+    comments "MyText"
+  end
   factory :protocol do
     name "test"
     tp1 0.25
