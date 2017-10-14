@@ -1,0 +1,36 @@
+<div id='form-containier' class='form'>  
+  
+  <%= form_for @task do |f| %>
+    
+    <div class="form-group">
+      <%= f.label "Assigned By" %>
+      <span><%= current_user.full_name %></span>
+      <%= f.hidden_field :assigned_by, value: current_user.id %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :serial_no, "Serial No" %>
+      <%= f.text_field :serial_no, :class => "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :account, "Account" %>
+      <%= f.text_field :account, :class => "form-control" %>
+    </div> 
+
+    <div class="form-group">
+      <%= f.label :assigned_to, "Assigned To" %><br>
+      <%= f.collection_select :assigned_to, User.order(:first_name), :id, :full_name, :class => "form-control" %>
+    </div> 
+
+    <div class="form-group">
+      <%= f.label :comments, "Comments" %>
+      <%= f.text_area :comments, :class => "form-control" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Submit", :class => "button btn btn-primary btn-block btn-lg"%>
+    </div>
+
+  <% end %>
+</div>

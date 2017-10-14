@@ -13,7 +13,16 @@
       </nav>
 
       <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "logout-button") %>
-      <span><%= current_user.email %></span>
+        
+      <div class="btn-group"> 
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><%= current_user.email %><span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+          <li><%= link_to('New Task', new_task_path, class: 'dropdown-menu') %>
+          <li><%= link_to('View All Tasks', tasks_path, class: 'dropdown-item') %></li>
+        </ul>
+      </div>
+
     </div>
 
   </div>

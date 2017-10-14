@@ -1,0 +1,18 @@
+<table class='table' class='form'>
+  <tr>
+    <td>Task No</td>
+    <td>Assigned To</td>
+    <td>Serial No</td>
+    <td>Account No</td>
+    <td>Assigned By</td>
+
+  <% @tasks.each do |task| %>
+    <tr>
+      <td><%= task.id %></td>
+      <td><%= task.task_owner.full_name %></td>
+      <td><%= task.serial_no %></td>
+      <td><%= task.account %></td>
+      <td><%= task.task_creator.full_name %></td>
+    </tr>
+  <% end %>
+</table>

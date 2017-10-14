@@ -4,6 +4,7 @@
 4. Localize fonts
 5. Find out why the User database table gets hit for each new request
 6. Add which fields cannot be blank
+7. Fix the css id="test-result-form"
 
 
 #$(document).on "click", ".message a", (e)->

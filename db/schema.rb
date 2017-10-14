@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171012154341) do
+ActiveRecord::Schema.define(version: 20171014162657) do
 
   create_table "protocols", force: :cascade do |t|
     t.float "tp1"
@@ -31,14 +31,14 @@ ActiveRecord::Schema.define(version: 20171012154341) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string "user_id"
+    t.string "assigned_by"
+    t.string "assigned_to"
     t.string "serial_no"
     t.string "account"
-    t.string "assign_to"
     t.text "comments"
+    t.boolean "completed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "complete"
   end
 
   create_table "test_results", force: :cascade do |t|
