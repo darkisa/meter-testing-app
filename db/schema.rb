@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171014162657) do
+ActiveRecord::Schema.define(version: 20171016211706) do
 
   create_table "protocols", force: :cascade do |t|
     t.float "tp1"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20171014162657) do
     t.boolean "completed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "completed_on"
   end
 
   create_table "test_results", force: :cascade do |t|

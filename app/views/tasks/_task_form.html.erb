@@ -1,6 +1,8 @@
 <div id='form-containier' class='form'>  
   
   <%= form_for @task do |f| %>
+
+    <h1><%= @heading %></h1>
     
     <div class="form-group">
       <%= f.label "Assigned By" %>
@@ -28,8 +30,15 @@
       <%= f.text_area :comments, :class => "form-control" %>
     </div>
 
+    <% if @task.id %>
+      <div class="form-group">
+        <%= f.label :completed, "Completed" %>
+        <%= f.check_box :completed %>
+      </div>
+    <% end %>
+
     <div class="actions">
-      <%= f.submit "Submit", :class => "button btn btn-primary btn-block btn-lg"%>
+      <%= f.submit @submit_text, :class => "button btn btn-primary btn-block btn-lg"%>
     </div>
 
   <% end %>

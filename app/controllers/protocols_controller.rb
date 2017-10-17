@@ -29,8 +29,7 @@ class ProtocolsController < ApplicationController
     @protocol = Protocol.new(protocol_params)
 
     if @protocol.save
-      flash[:notice] = 'New protocol added'
-      redirect_back(fallback_location: 'test_results#index')
+      redirect_back :fallback_location => 'test_results#index', :notice => 'New protocol added'
     else
       flash[:notice] = @protocol.errors[:name]
       render 'protocols/_protocol_form'
@@ -40,9 +39,8 @@ class ProtocolsController < ApplicationController
   def update
     @protocol = Protocol.find(params[:id])
 
-    if @protocol.update(protocol_params)
-      flash[:notice] = 'Protocol has been updated'
-      redirect_back(fallback_location: 'test_results#index')
+    if @protocol.update(protocol_params) 
+      redirect_back :fallback_location => 'test_results#index', :notice => 'Protocol has been updated'
     else
       flash[:notice] = 'An error occured'
       render 'index'
@@ -52,9 +50,8 @@ class ProtocolsController < ApplicationController
   def destroy
     @protocol = Protocol.find(params[:id])
 
-    @protocol.destroy
-    flash[:notice] = 'Protocol has been deleted'
-    redirect_back(fallback_location: 'test_results#index')
+    @protocol.destroy 
+    redirect_back :fallback_location => 'test_results#index', :notice => 'Protocol has been deleted'
   end
 
 private

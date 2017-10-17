@@ -5,6 +5,11 @@
     <td>Serial No</td>
     <td>Account No</td>
     <td>Assigned By</td>
+    <td>Assigned On</td>
+    <td>Completed On</td>
+    <td>Update</td>
+    <td>Delete</td>
+  </tr>
 
   <% @tasks.each do |task| %>
     <tr>
@@ -13,6 +18,12 @@
       <td><%= task.serial_no %></td>
       <td><%= task.account %></td>
       <td><%= task.task_creator.full_name %></td>
+      <td><%= task.created_at.to_formatted_s(:short) %></td>
+      <% if task.completed %><td><%= task.completed_on.to_formatted_s(:short) %></td>
+      <% else %><td>Open</td>
+      <% end %>
+      <td><%= link_to('Update', edit_task_path(task)) %>
+      <td><%= link_to('Delete', task_path(task), :method => :delete) %>      
     </tr>
   <% end %>
 </table>
