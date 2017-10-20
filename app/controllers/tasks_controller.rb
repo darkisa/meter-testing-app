@@ -27,6 +27,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @heading = 'Update Task'
     @submit_text = 'Update'
+    session[:previous] = request.referer
 
     render 'tasks/_task_form'
   end
@@ -36,7 +37,7 @@ class TasksController < ApplicationController
     @task.set_completed_on(params[:task][:completed])
 
     if @task.update(task_params)
-      redirect_to tasks_path, :notice => 'Task has been updated'
+      redirect_to session.delete(:previous), :notice => 'Task has been updated'
     else
       flash[:notice] = @task.errors
       render 'tasks/_task_form'
@@ -50,6 +51,10 @@ class TasksController < ApplicationController
     redirect_to tasks_path, :notice => 'Task has been deleted'
   end
 
+  def my_tasks
+    @tasks = current_user.tasks_received
+    render 'index'
+  end
 
 private
 

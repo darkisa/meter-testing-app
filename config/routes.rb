@@ -11,14 +11,10 @@ end
   
   get 'sessions/new'
 
-  resources :users
+  resources :users, :test_results, :protocols, :test_types
 
-  resources :test_results
-  
-  resources :protocols
-
-  resources :test_types
-  
   resources :tasks
+  get 'my_tasks', to: 'tasks#my_tasks'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

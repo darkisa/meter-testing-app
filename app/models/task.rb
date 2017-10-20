@@ -9,5 +9,4 @@ class Task < ApplicationRecord
       self.completed_on = nil
     end
   end
-
 end
