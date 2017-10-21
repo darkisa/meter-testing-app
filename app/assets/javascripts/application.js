@@ -17,4 +17,6 @@
 //= require bootstrap-sprockets
 //removed - require rails-ujs
 //= require turbolinks
+//= require raphael
+//= require morris
 //= require_tree .
