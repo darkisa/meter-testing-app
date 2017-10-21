@@ -12,18 +12,20 @@
         <a href="#">Search</a>
       </nav>
 
-      <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "logout-button") %>
-        
-      <div class="btn-group"> 
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><%= current_user.email %><span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
-          <li><%= link_to('New Task', new_task_path, class: 'dropdown-menu') %></li>
-          <li><%= link_to('My Tasks', my_tasks_path, class: 'dropdown-menu') %></li>
-          <li><%= link_to('View All Tasks', tasks_path, class: 'dropdown-item') %></li>
-        </ul>
-      </div>
+      <div id="right-side">
+        <div class="btn-group" id="user-options"> 
+          <button class="btn dropdown-toggle" type="button" id="user-dropdown-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <%= current_user.email %>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+            <li><%= link_to('New Task', new_task_path, class: 'dropdown-item') %></li>
+            <li><%= link_to('My Tasks', my_tasks_path, class: 'dropdown-item') %></li>
+            <li><%= link_to('All Tasks', tasks_path, class: 'dropdown-item') %></li>
+          </ul>
+        </div>
 
+        <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "logout-button") %>
+      </div>
     </div>
 
   </div>
@@ -36,7 +38,7 @@
 
     <!-- Protocol dropdown button and selection -->
       <div class="btn-group">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Protocol
+        <button class="btn btn-default dropdown-toggle" type="button" id="protocol-dropdown-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Protocol
           <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
@@ -53,17 +55,6 @@
       </div>
 
     <!-- Adjustment factor dropdown button and selection -->
-      <div class="btn-group">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Adjustment Factor
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
-            <!-- INSERT ADJUSMENT FACTORS -->
-          <li role="separator" class="divider"></li>
-          <li><a class="dropdown-item" id="create-protocol">Create New Protocol</a></li>
-        </ul>
-      </div>
-
       </nav>
 
     </div>
