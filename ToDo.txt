@@ -7,6 +7,7 @@
 7. Fix the css id="test-result-form"
 8. Add reminder email to whomever is assigned a task
 9. Make elements wrap when page shrinks
+10. Add the test point rates to the test results table
 
 
 #$(document).on "click", ".message a", (e)->
