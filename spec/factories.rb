@@ -1,12 +1,4 @@
 FactoryBot.define do
-  factory :task do
-    user_id "MyString"
-    serial_no "MyString"
-    account "MyString"
-    assign_to "MyString"
-    comments "MyText"
-  end
-
   factory :protocol do
     name "test"
     tp1 0.25
@@ -23,10 +15,18 @@ FactoryBot.define do
   end
 
   factory :user do
-    email 'test@gmail.com'
-    first_name 'Foo'
-    last_name 'Bar'
-    title 'technician'
-    password 'Password'
+    id 1
+    email       'test@gmail.com'
+    first_name  'Foo'
+    last_name   'Bar'
+    title       'technician'
+    password    'Password'
+  end
+
+  factory :task do
+    assigned_by  2
+    assigned_to  1
+    serial_no    '11111'
+    account      '22222'
   end
 end

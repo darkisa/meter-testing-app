@@ -8,9 +8,9 @@ module UserHelper
   end
 
   def login_user(user)
-    visit login_path
+    visit '/'
     fill_in 'email', with: user.email
     fill_in 'password', with: 'Password'
-    find_button('LOG IN').click
+    click_on('Login')
   end
 end
