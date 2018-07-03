@@ -22,7 +22,7 @@
 
     <div class="form-group">
       <%= f.label :assigned_to, "Assigned To" %><br>
-      <%= f.collection_select :assigned_to, User.order(:first_name), :id, :full_name, :class => "form-control" %>
+      <%= f.collection_select :assigned_to, User.order(:first_name), :id, :full_name, { selected: current_user.id }, class: "form-control" %>
     </div> 
 
     <div class="form-group">
