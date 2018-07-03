@@ -8,10 +8,17 @@ RSpec.feature "Tasks", type: :feature do
     login_user(@user)
   end
   
-  scenario 'User views his tasks' do
+  scenario 'User views all tasks' do
    click_on(@user.email)
    click_on('All Tasks')
 
    expect(page).to have_content('Foo Bar')
+  end
+
+  scenario 'User views taks only belonging to him' do
+    click_on(@user.email)
+    click_on('All Tasks')
+
+    expect(page).to have_content('Foo Bar')
   end
 end
