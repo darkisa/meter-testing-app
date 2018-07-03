@@ -1,4 +1,5 @@
-jQuery ->
+$('#test_result').ready ->
+  alert "page loaded"
   $.ajax
     type: 'GET',
     url: '/reports',
@@ -6,19 +7,25 @@ jQuery ->
     success: (response) ->
       create_chart(response)
     error: (response) ->
-      console.log response
+      console.log 'error'
 
 create_chart = (chart_data) ->
   results = []
+  counter = 1
   $.each chart_data, (key, value) ->
     if key.match(/^tp.*accuracy$/) && value != null
-      results.push( { tp: key, accuracy: value } )
-  console.log results
+      results.push( { tp: 'TP' + counter, accuracy: value } )
+      counter++
 
   new (Morris.Line)(
     element: 'test_result'
-    parseTime: false
     data: results
     xkey: 'tp'
     ykeys: [ 'accuracy' ]
-    labels: [ 'Accuracy' ])
+    yLabelFormat: foramt_percentage = (y) -> return y * 100 + '%'
+    labels: [ 'Accuracy' ]
+    parseTime: false
+    goals: [1]
+    goalLineColors: ['green']
+    smooth: false
+    )

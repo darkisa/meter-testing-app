@@ -54,14 +54,10 @@ group :development, :test do
   gem 'selenium-webdriver'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails', '~>4.0'
   gem 'webrat'
   gem 'rspec-rails', '~> 3.0'
-  gem 'cucumber'
-  gem 'cucumber-rails', :require => false
-  gem 'cucumber-rails-training-wheels'
   gem 'database_cleaner'
-  gem 'rails-controller-testing'
 end
 
 group :development do

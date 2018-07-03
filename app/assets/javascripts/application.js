@@ -19,4 +19,5 @@
 //= require turbolinks
 //= require raphael
 //= require morris
+//= require jquery-readyselector
 //= require_tree .
