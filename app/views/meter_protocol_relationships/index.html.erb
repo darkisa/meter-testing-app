@@ -18,6 +18,8 @@
       <td><%= relationship.model %></td>
       <td><%= relationship.test_type %></td>
       <td><%= relationship.protocol_name %></td>
+      <td><%= link_to('Update', edit_meter_protocol_relationship_path(relationship)) %></td>
+      <td><%= link_to('Delete', meter_protocol_relationship_path(relationship), method: :delete) %></td>
     </tr>
   <% end %>
 </table>

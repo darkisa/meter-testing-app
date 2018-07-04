@@ -1,5 +1,5 @@
 <div id='form-containier' class='form'> 
-  <%= form_for @relationship, url: meter_protocol_relationships_path, method: :post do |f| %>
+  <%= form_for @relationship do |f| %>
     <div class="form-group">
       <%= f.label 'Meter Size' %>
       <%= f.number_field :size, class: 'form-control', step: :any %>

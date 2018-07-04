@@ -13,10 +13,11 @@ Rails.application.routes.draw do
             :test_results, 
             :protocols, 
             :test_types, 
-            :tasks,
-            :meter_protocol_relationships
+            :tasks
+            
+  resources :meter_protocol_relationships
 
-  get 'my_tasks', to: 'tasks#my_tasks'
+  get 'my_tasks', to: 'tasks#my_teasks'
   get 'reports', to: 'reports#report'
   get 'sessions/new'
 

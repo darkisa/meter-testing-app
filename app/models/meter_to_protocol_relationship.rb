@@ -1,2 +1,0 @@
-class MeterToProtocolRelationship < ApplicationRecord
-end

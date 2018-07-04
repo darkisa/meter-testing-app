@@ -25,7 +25,6 @@ class TasksController < ApplicationController
   def edit
     @task = Task.find(params[:id])
     @heading = 'Update Task'
-    @submit_text = 'Update'
     session[:previous] = request.referer
 
     render 'tasks/_task_form'
