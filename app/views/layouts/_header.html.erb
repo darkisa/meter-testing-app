@@ -8,13 +8,18 @@
 
       <nav >
         <a href="#">Test</a>
-        <%= link_to('Report', reports_path, remote: false) %>
+        <%= link_to('Report', reports_path) %>
         <a href="#">Search</a>
       </nav>
 
       <div id="right-side">
         <div class="btn-group" id="user-options"> 
-          <button class="btn dropdown-toggle" type="button" id="user-dropdown-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <button class="btn dropdown-toggle" 
+                  type="button" 
+                  id="user-dropdown-menu" 
+                  data-toggle="dropdown" 
+                  aria-haspopup="true" 
+                  aria-expanded="true">
             <%= current_user.email %>
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
@@ -37,28 +42,55 @@
       <nav id="secondary-menu">
 
     <!-- Protocol dropdown button and selection -->
-      <div class="btn-group">
-        <button class="btn btn-default dropdown-toggle" type="button" id="protocol-dropdown-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Protocol
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
-          <% @protocols.each do |protocol| %>
-            <li><%= link_to(protocol.name, new_test_result_path(:id => protocol.id), class: "dropdown-item") %></li>
-          <% end %>
-            <li role="separator" class="divider"></li>
-            <li><%= link_to('New Protocol', new_protocol_path, remote: false, class: "dropdown-item") %></li>
-            <li role="separator" class="divider"></li>
-            <li><%= link_to('Delete Protocol', protocols_path, remote: false, class: "dropdown-item") %></li>
-            <li role="separator" class="divider"></li>
-            <li><%= link_to('Edit Protocol', protocols_path, remote: false, class: "dropdown-item") %></li>
-        </ul>
-      </div>
+        <div class="btn-group">
+          <button class="btn btn-default dropdown-toggle" 
+                  type="button" 
+                  id="protocol-dropdown-menu" 
+                  data-toggle="dropdown" 
+                  aria-haspopup="true" 
+                  aria-expanded="true">Protocol
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+            <% @protocols.each do |protocol| %>
+              <li>
+                <%= link_to(protocol.name, new_test_result_path(:id => protocol.id), 
+                            class: "dropdown-item") %>
+              </li>
+            <% end %>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to('New Protocol', new_protocol_path, class: "dropdown-item") %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to('Delete Protocol', protocols_path, class: "dropdown-item") %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to('Edit Protocol', protocols_path, class: "dropdown-item") %></li>
+          </ul>
+        </div>
 
-    <!-- Adjustment factor dropdown button and selection -->
+    <!-- Protocol Relationships -->
+        <div class="btn-group">
+          <button class="btn btn-default dropdown-toggle" 
+                  type="button" 
+                  id="protocol-dropdown-menu" 
+                  data-toggle="dropdown" 
+                  aria-haspopup="true" 
+                  aria-expanded="true">Relationships
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+            <li>
+              <%= link_to('View Relationships', meter_protocol_relationships_path, 
+                                                class: "dropdown-item") %>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+              <%= link_to('New Relationship', new_meter_protocol_relationship_path, 
+                                             class: "dropdown-item") %> 
+            </li>
+          </ul>
+        </div>
+
       </nav>
-
     </div>
-
   </div>
-
 </header>
