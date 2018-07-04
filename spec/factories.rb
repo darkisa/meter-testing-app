@@ -28,5 +28,6 @@ FactoryBot.define do
     assigned_to  1
     serial_no    '11111'
     account      '22222'
+    completed    false
   end
 end
