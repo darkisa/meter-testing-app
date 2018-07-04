@@ -5,6 +5,7 @@ RSpec.feature "Tasks", type: :feature do
     create(:user, id: 2, email: 'joeschmo@gmail.com', first_name: 'Joe', last_name: 'Schmo')
     @user = create(:user)
     create(:task)
+    create(:meter)
     login_user(@user)
     click_on(@user.email)
   end
@@ -64,5 +65,10 @@ RSpec.feature "Tasks", type: :feature do
     view_my_tasks(second_user)
 
     expect(page).to have_content('Joe Schmo')
+  end
+
+  scenario 'A user starts a task' do
+    view_my_tasks(@user)
+    click_on
   end
 end

@@ -1,4 +1,15 @@
 FactoryBot.define do
+  factory :meter_to_protocol_relationship do
+    
+  end
+  factory :meter do
+    serial  '111111'
+    size    2
+    type    'Compound'
+    brand   'Neptune'
+    model   'NA' 
+  end
+
   factory :protocol do
     name "test"
     tp1  0.25

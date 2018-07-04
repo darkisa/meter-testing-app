@@ -9,11 +9,12 @@
     <td>Completed On</td>
     <td>Update</td>
     <td>Delete</td>
+    <td>Start</td>
   </tr>
 
   <% if @tasks.empty?  %>
     <tr>
-      <td colspan='9'>You have no assigned tasks</td>
+      <td colspan='10'>You have no assigned tasks</td>
     </tr>
   <% else %>
     <% @tasks.each do |task| %>
