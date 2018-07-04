@@ -11,19 +11,25 @@
     <td>Delete</td>
   </tr>
 
-  <% @tasks.each do |task| %>
+  <% if @tasks.empty?  %>
     <tr>
-      <td><%= task.id %></td>
-      <td><%= task.task_owner.full_name %></td>
-      <td><%= task.serial_no %></td>
-      <td><%= task.account %></td>
-      <td><%= task.task_creator.full_name %></td>
-      <td><%= task.created_at.to_formatted_s(:short) %></td>
-      <% if task.completed %><td><%= task.completed_on.to_formatted_s(:short) %></td>
-      <% else %><td>Open</td>
-      <% end %>
-      <td><%= link_to('Update', edit_task_path(task)) %>
-      <td><%= link_to('Delete', task_path(task), :method => :delete) %>      
+      <td colspan='9'>You have no assigned tasks</td>
     </tr>
+  <% else %>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.id %></td>
+        <td><%= task.task_owner.full_name %></td>
+        <td><%= task.serial_no %></td>
+        <td><%= task.account %></td>
+        <td><%= task.task_creator.full_name %></td>
+        <td><%= task.created_at.to_formatted_s(:short) %></td>
+        <% if task.completed %><td><%= task.completed_on.to_formatted_s(:short) %></td>
+        <% else %><td>Open</td>
+        <% end %>
+        <td><%= link_to('Update', edit_task_path(task)) %>
+        <td><%= link_to('Delete', task_path(task), :method => :delete) %>      
+      </tr>
+    <% end %>
   <% end %>
 </table>

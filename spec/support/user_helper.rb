@@ -1,10 +1,7 @@
 module UserHelper
 
-  def login_admin
-    before(:each) do
-      @request.env["devise.mapping"] = Devise.mappings[:admin]
-      sign_in FactoryGirl.create(:admin) # Using factory bot as an example
-    end
+  def logut_user
+    click_link 'Logout'
   end
 
   def login_user(user)

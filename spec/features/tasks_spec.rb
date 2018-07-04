@@ -41,4 +41,28 @@ RSpec.feature "Tasks", type: :feature do
     expect(page).to have_content('Task has been updated')
     expect(page).to have_content('updated task')
   end
+
+  scenario 'User deletes a task' do
+    click_on 'All Tasks'
+    click_link 'Delete'
+
+    expect(Task.all.size).to eq 0
+  end
+
+  scenario 'A user assigns a task to someone else' do
+    second_user = User.find(2)
+    click_on 'All Tasks'
+    click_link 'Update'
+    find('#task_assigned_to').find(:xpath, 'option[1]').select_option
+    click_on 'Update'
+    view_my_tasks(@user)
+
+    expect(page).to have_content('You have no assigned tasks')
+
+    logut_user
+    login_user(second_user)
+    view_my_tasks(second_user)
+
+    expect(page).to have_content('Joe Schmo')
+  end
 end
