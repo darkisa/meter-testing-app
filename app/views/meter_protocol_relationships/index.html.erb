@@ -1,0 +1,23 @@
+<table class='table'>
+  <tr>
+    <th>Size</th>
+    <th>Type</th>
+    <th>Brand</th>
+    <th>Model</th>
+    <th>Test Type</th>
+    <th>Protocol Name</th>
+    <th>Update</th>
+    <th>Delete</th>
+  </tr>
+ 
+  <% @relationships.each do |relationship| %>
+    <tr>
+      <td><%= relationship.size %></td>
+      <td><%= relationship.type %></td>
+      <td><%= relationship.brand %></td>
+      <td><%= relationship.model %></td>
+      <td><%= relationship.test_type %></td>
+      <td><%= relationship.protocol_name %></td>
+    </tr>
+  <% end %>
+</table>
