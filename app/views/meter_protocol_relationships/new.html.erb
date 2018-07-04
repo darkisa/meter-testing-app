@@ -1,0 +1,38 @@
+<div id='form-containier' class='form'> 
+  <%= form_for @relationship, url: meter_protocol_relationships_path, method: :post do |f| %>
+    <div class="form-group">
+      <%= f.label 'Meter Size' %>
+      <%= f.number_field :size, class: 'form-control', step: :any %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label 'Meter Type' %>
+      <%= f.text_field :meter_type, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label 'Meter Brand' %>
+      <%= f.text_field :brand, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label 'Meter Model' %>
+      <%= f.text_field :model, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label 'Test Type' %>
+      <%= f.text_field :test_type, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label 'Protocol Name' %>
+      <%= f.text_field :protocol_name, class: 'form-control' %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit 'Submit', class: 'button btn btn-primary btn-block btn-lg' %>
+    </div>
+  <% end %>
+
+</div>

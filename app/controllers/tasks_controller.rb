@@ -7,7 +7,6 @@ class TasksController < ApplicationController
   def new
     @task = Task.new
     @users = User.all
-    @submit_text = 'Submit'
 
     render 'tasks/_task_form'
   end

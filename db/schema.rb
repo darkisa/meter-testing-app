@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180704175723) do
+ActiveRecord::Schema.define(version: 20180704191100) do
 
   create_table "meter_to_protocol_relationships", force: :cascade do |t|
     t.decimal "size"
-    t.string "type"
+    t.string "meter_type"
     t.string "brand"
     t.string "model"
     t.string "test_type"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20180704175723) do
   create_table "meters", force: :cascade do |t|
     t.string "serial"
     t.decimal "size"
-    t.string "type"
+    t.string "meter_type"
     t.string "brand"
     t.string "model"
     t.datetime "purchased"
