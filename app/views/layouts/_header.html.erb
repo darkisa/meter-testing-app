@@ -67,24 +67,23 @@
           </ul>
         </div>
 
-    <!-- Protocol Relationships -->
+    <!-- Tests -->
         <div class="btn-group">
           <button class="btn btn-default dropdown-toggle" 
                   type="button" 
                   id="protocol-dropdown-menu" 
                   data-toggle="dropdown" 
                   aria-haspopup="true" 
-                  aria-expanded="true">Relationships
+                  aria-expanded="true">Tests
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
             <li>
-              <%= link_to('View Relationships', meter_protocol_relationships_path, 
-                                                class: "dropdown-item") %>
+              <%= link_to('View Tests', tests_path, class: "dropdown-item") %>
             </li>
             <li role="separator" class="divider"></li>
             <li>
-              <%= link_to('New Relationship', new_meter_protocol_relationship_path, 
+              <%= link_to('New Test', new_test_path, 
                                              class: "dropdown-item") %> 
             </li>
           </ul>

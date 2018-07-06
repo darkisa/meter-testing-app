@@ -13,9 +13,8 @@ Rails.application.routes.draw do
             :test_results, 
             :protocols, 
             :test_types, 
-            :tasks
-            
-  resources :meter_protocol_relationships
+            :tasks,
+            :tests
 
   get 'my_tasks', to: 'tasks#my_teasks'
   get 'reports', to: 'reports#report'
