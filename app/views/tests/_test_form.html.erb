@@ -1,5 +1,5 @@
 <div id='form-containier' class='form'> 
-  <%= form_for @relationship do |f| %>
+  <%= form_for @test do |f| %>
     <div class="form-group">
       <%= f.label 'Meter Size' %>
       <%= f.number_field :size, class: 'form-control', step: :any %>
@@ -22,12 +22,22 @@
 
     <div class="form-group">
       <%= f.label 'Test Type' %>
-      <%= f.text_field :test_type, class: 'form-control' %>
+      <%= f.collection_select :test_type_id, 
+                              TestType.order(:name), 
+                              :id, 
+                              :name,
+                              prompt: true,
+                              class: 'form-control' %>
     </div>
 
     <div class="form-group">
-      <%= f.label 'Protocol Name' %>
-      <%= f.text_field :protocol_name, class: 'form-control' %>
+      <%= f.label 'Protocol' %>
+      <%= f.collection_select :protocol_id, 
+                              Protocol.order(:name), 
+                              :id, 
+                              :name,
+                              prompt: true,
+                              class: 'form-control' %>
     </div>
 
     <div class="actions">

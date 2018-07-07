@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180706230231) do
+ActiveRecord::Schema.define(version: 20180706235600) do
 
   create_table "meters", force: :cascade do |t|
     t.string "serial"
@@ -140,7 +140,7 @@ ActiveRecord::Schema.define(version: 20180706230231) do
   end
 
   create_table "test_types", force: :cascade do |t|
-    t.string "test_type"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -150,8 +150,8 @@ ActiveRecord::Schema.define(version: 20180706230231) do
     t.string "meter_type"
     t.string "brand"
     t.string "model"
-    t.string "test_type"
-    t.string "protocol_name"
+    t.string "test_type_id"
+    t.string "protocol_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

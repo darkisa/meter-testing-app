@@ -16,8 +16,8 @@
       <td><%= test.meter_type %></td>
       <td><%= test.brand %></td>
       <td><%= test.model %></td>
-      <td><%= test.test_type %></td>
-      <td><%= test.protocol_name %></td>
+      <td><%= test.test_type.name %></td>
+      <td><%= test.protocol.name %></td>
       <td><%= link_to('Update', edit_test_path(test)) %></td>
       <td><%= link_to('Delete', test_path(test), method: :delete) %></td>
     </tr>

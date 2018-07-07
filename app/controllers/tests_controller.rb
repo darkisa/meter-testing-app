@@ -2,6 +2,8 @@ class TestsController < ApplicationController
 
   def index
     @tests = Test.all
+    @protocols = Protocol.all
+    @test_types = TestType.order(:name)
   end
 
   def new
