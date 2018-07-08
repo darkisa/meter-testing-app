@@ -12,7 +12,7 @@
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
           <% @type.each do |type| %>
-            <li><%= link_to(type.test_type, "#", class: "dropdown-item") %></li>
+            <li><%= link_to(type.name, "#", class: "dropdown-item") %></li>
           <% end %>
             <li role="separator" class="divider"></li>
             <li><%= link_to('New Test Type', new_test_type_path) %></li>

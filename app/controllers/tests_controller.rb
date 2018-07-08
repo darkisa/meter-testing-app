@@ -13,9 +13,12 @@ class TestsController < ApplicationController
 
   def create
     @test = Test.new(test_params)
-
-    @test.save
-    redirect_to tests_path, notice: 'Test created'
+    if @test.save
+      redirect_to tests_path, notice: 'Test created'
+    else
+      @errors = @test.errors
+      render 'tests/_test_form'
+    end
   end
 
   def edit
@@ -28,8 +31,8 @@ class TestsController < ApplicationController
     if @test.update(test_params)
       redirect_to tests_path, notice: 'Test was updated'
     else
-      flash[:notice] = @test.errors
-      redirect_back(fallback_location: tests_path)
+      @errors = @test.errors
+      render 'tests/_test_form'
     end
   end
 

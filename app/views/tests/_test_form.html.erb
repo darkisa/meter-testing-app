@@ -1,5 +1,6 @@
 <div id='form-containier' class='form'> 
   <%= form_for @test do |f| %>
+    <%= render 'layouts/error_messages' %>
     <div class="form-group">
       <%= f.label 'Meter Size' %>
       <%= f.number_field :size, class: 'form-control', step: :any %>
