@@ -1,36 +1,44 @@
-<table class='table' class='form'>
-  <tr>
-    <td>Task No</td>
-    <td>Assigned To</td>
-    <td>Serial No</td>
-    <td>Account No</td>
-    <td>Assigned By</td>
-    <td>Assigned On</td>
-    <td>Completed On</td>
-    <td>Update</td>
-    <td>Delete</td>
-    <td>Start</td>
-  </tr>
-
-  <% if @tasks.empty?  %>
+<div>
+  <label>Show only open tasks</label>
+  <input type='checkbox' name='open_tasks' id='open_tasks'>
+  <table class='table' class='form'>
     <tr>
-      <td colspan='10'>You have no assigned tasks</td>
+      <td>Task No</td>
+      <td>Assigned To</td>
+      <td>Serial No</td>
+      <td>Account No</td>
+      <td>Assigned By</td>
+      <td>Assigned On</td>
+      <td>Completed On</td>
+      <td>Update</td>
+      <td>Delete</td>
+      <td>Start</td>
     </tr>
-  <% else %>
-    <% @tasks.each do |task| %>
+
+    <% if @tasks.empty?  %>
       <tr>
-        <td><%= task.id %></td>
-        <td><%= task.task_owner.full_name %></td>
-        <td><%= task.serial_no %></td>
-        <td><%= task.account %></td>
-        <td><%= task.task_creator.full_name %></td>
-        <td><%= task.created_at.to_formatted_s(:short) %></td>
-        <% if task.completed %><td><%= task.completed_on.to_formatted_s(:short) %></td>
-        <% else %><td>Open</td>
-        <% end %>
-        <td><%= link_to('Update', edit_task_path(task)) %>
-        <td><%= link_to('Delete', task_path(task), :method => :delete) %>      
+        <td colspan='10'>You have no assigned tasks</td>
       </tr>
+    <% else %>
+      <% @tasks.each do |task| %>
+        <tr>
+          <td><%= task.id %></td>
+          <td><%= task.task_owner.full_name %></td>
+          <td><%= task.serial_no %></td>
+          <td><%= task.account %></td>
+          <td><%= task.task_creator.full_name %></td>
+          <td><%= task.created_at.to_formatted_s(:short) %></td>
+          <td class='task_open'>
+            <% if task.completed %>
+              <%= task.completed_on.to_formatted_s(:short) %>
+            <% else %>
+              <%= 'Open' %>
+            <% end %>
+          </td>
+          <td><%= link_to('Update', edit_task_path(task)) %>
+          <td><%= link_to('Delete', task_path(task), :method => :delete) %>      
+        </tr>
+      <% end %>
     <% end %>
-  <% end %>
-</table>
+  </table>
+</div>

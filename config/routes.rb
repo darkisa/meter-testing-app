@@ -16,7 +16,7 @@ Rails.application.routes.draw do
             :tasks,
             :tests
 
-  get 'my_tasks', to: 'tasks#my_teasks'
+  get 'my_tasks', to: 'tasks#my_tasks'
   get 'reports', to: 'reports#report'
   get 'sessions/new'
 

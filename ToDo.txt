@@ -8,12 +8,6 @@
 8. Add reminder email to whomever is assigned a task
 9. Make elements wrap when page shrinks
 10. Add the test point rates to the test results table
-
-
-#$(document).on "click", ".message a", (e)->
-#  e.preventDefault()
-#  $('form').animate {
-#    height: 'toggle'
-#    opacity: 'toggle'
-#  }, 'slow'
-#return
+11. Create feature that would allow a person undertaking a task to click on run and have the db look up the serial number of the meter that was assigned and automatically select the appropriate test
+12. On the new test result page, allow a user to change the protocol or test type
+13. Create a feature that would allow a user to filter for only open tasks
