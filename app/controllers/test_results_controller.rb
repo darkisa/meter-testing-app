@@ -7,9 +7,10 @@ class TestResultsController < ApplicationController
   end
 
   def new
-    @test_result = TestResult.new
-    @protocol = Protocol.find(params[:id])
+    @test = Test.includes(:protocol).find(params[:test_id])
+    @protocol = @test.protocol
     @type = TestType.all
+    @test_result = TestResult.new
     @user = current_user
   end
 
@@ -35,6 +36,7 @@ class TestResultsController < ApplicationController
   end
 
   private
+
     def test_result_params
       params.require(:test_result).permit!
     end

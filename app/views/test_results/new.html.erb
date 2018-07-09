@@ -1,8 +1,6 @@
 <div id="form-container">
 
-  <%= form_for @test_result, :html => {:id => "test-result-form"} do |f| %>
-
-<%# Meta data form about the test that will be conducted #######################################%>
+  <%= form_for @test_result, id: "test-result-form" do |f| %>
 
     <div id="test-form">
 
@@ -48,38 +46,38 @@
                <span class="glyphicon glyphicon-hand-up"></span>
             <% end %>
           </span>
-          <%= f.time_field :end_time, :class => "form-control" %>
+          <%= f.time_field :end_time, class: 'form-control' %>
         </div>
       </div>
 
       <div class="form-group">
-        <%= f.label :meter_size, "Meter Size" %>
-        <%= f.number_field :meter_size, :class => "form-control", step: "any" %>
+        <%= f.label :meter_size, 'Meter Size' %>
+        <%= f.number_field  :meter_size, value: @test.size, step: 'any', class: 'form-control' %>
+      </div>
+
+      <div class='form-group'>
+        <%= f.label :meter_type, 'Meter Type' %>
+        <%= f.text_field :meter_type, value: @test.meter_type, class: 'form-control' %>
       </div>
 
       <div class="form-group">
-        <%= f.label :meter_type, "Meter Type" %>
-        <%= f.text_field :meter_type, :class => "form-control" %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :meter_brand, "Meter Brand" %>
-        <%= f.text_field :meter_brand, :class => "form-control" %>
+        <%= f.label :meter_brand, 'Meter Brand' %>
+        <%= f.text_field :meter_brand, value: @test.brand, class: 'form-control' %>
       </div>
 
       <div class="form-group">
         <%= f.label :model, "Meter Model" %>
-        <%= f.text_field :model, :class => "form-control" %>
+        <%= f.text_field :model, value: @test.model, class: 'form-control' %>
       </div>
 
       <div class="form-group">
         <%= f.label :serial_no, "Serial No" %>
-        <%= f.text_field :serial_no, :class => "form-control" %>
+        <%= f.text_field :serial_no, class: 'form-control' %>
       </div>
 
       <div class="form-group">
-        <%= f.label :account, "Account" %>
-        <%= f.text_field :account, :class => "form-control" %>
+        <%= f.label :account, 'Account' %>
+        <%= f.text_field :account, class: 'form-control' %>
       </div>
 
     </div>
