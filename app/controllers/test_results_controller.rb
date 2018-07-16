@@ -7,11 +7,10 @@ class TestResultsController < ApplicationController
   end
 
   def new
-    @test = Test.includes(:protocol).find(params[:test_id])
+    @test = Test.includes(:protocol).includes(:test_type).find(params[:test_id])
     @protocol = @test.protocol
-    @type = TestType.all
+    @time = Time.now.strftime('%Y-%m-%dT%H:%m')
     @test_result = TestResult.new
-    @user = current_user
   end
 
   def edit

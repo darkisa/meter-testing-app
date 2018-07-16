@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180706235600) do
+ActiveRecord::Schema.define(version: 20180716171954) do
 
   create_table "meters", force: :cascade do |t|
     t.string "serial"
@@ -56,10 +56,7 @@ ActiveRecord::Schema.define(version: 20180706235600) do
 
   create_table "test_results", force: :cascade do |t|
     t.integer "test_id"
-    t.string "test_name"
-    t.date "test_date"
-    t.time "start_time"
-    t.time "end_time"
+    t.date "test_start_date"
     t.string "model"
     t.string "test_type"
     t.string "meter_size"
@@ -137,6 +134,7 @@ ActiveRecord::Schema.define(version: 20180706235600) do
     t.decimal "tp11_end_read"
     t.decimal "tp11_register_volume"
     t.decimal "tp11_reference_volume"
+    t.date "test_end_date"
   end
 
   create_table "test_types", force: :cascade do |t|
@@ -154,6 +152,7 @@ ActiveRecord::Schema.define(version: 20180706235600) do
     t.string "protocol_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "test_name"
   end
 
   create_table "users", force: :cascade do |t|

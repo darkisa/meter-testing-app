@@ -1,5 +1,6 @@
 <table class='table'>
   <tr>
+    <th>Test Name</th>
     <th>Size</th>
     <th>Type</th>
     <th>Brand</th>
@@ -13,6 +14,7 @@
  
   <% @tests.each do |test| %>
     <tr>
+      <td><%= test.test_name %></td>
       <td><%= test.size %></td>
       <td><%= test.meter_type %></td>
       <td><%= test.brand %></td>

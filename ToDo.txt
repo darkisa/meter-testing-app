@@ -10,3 +10,35 @@
 10. Add the test point rates to the test results table
 11. Create feature that would allow a person undertaking a task to click on run and have the db look up the serial number of the meter that was assigned and automatically select the appropriate test
 12. On the new test result page, allow a user to change the protocol or test type
+
+        
+
+	      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" 
+                id="dropdownMenu1" 
+                data-toggle="dropdown" 
+                aria-haspopup="true" 
+                aria-expanded="true">Test Type
+          <span class="caret"></span>
+        </button>
+
+
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+          <% @type.each do |type| %>
+            <li><%= link_to(type.name, "#", class: "dropdown-item") %></li>
+          <% end %>
+            <li role="separator" class="divider"></li>
+            <li>
+              <%= link_to('New Test Type', new_test_type_path) %>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+              <%= link_to('Delete Test Type', test_types_path, :method => :get) %>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+              <%= link_to('Edit Test Type', test_types_path, :method => :get) %>
+            </li>
+        </ul>
+
+          </div>
