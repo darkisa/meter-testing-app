@@ -12,11 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.turbolinks
+//removed - require jquery.turbolinks
 //= require tether
 //= require bootstrap-sprockets
 //removed - require rails-ujs
-//= require turbolinks
+//removed - require turbolinks
 //= require raphael
 //= require morris
 //= require jquery-readyselector

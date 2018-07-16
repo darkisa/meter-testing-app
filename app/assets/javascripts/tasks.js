@@ -1,6 +1,6 @@
 $(document).ready(function() {
   $("#open_tasks").click(function() {
-      show_only_open_tasks()
+      show_only_open_tasks();
   });
 });
 

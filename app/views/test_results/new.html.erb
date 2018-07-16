@@ -5,8 +5,7 @@
     <div id="test-form">
       <div id='form-header'>
         <h2><%= @test.test_name %> Test</h2>
-        <p>Test Date
-          <%= f.datetime_local_field :test_start_date, value: @time, readonly: true %>
+        <p>Test Date <%= f.datetime_local_field :test_start_date, value: @time, readonly: true %>
         </p>
       </div>
 
