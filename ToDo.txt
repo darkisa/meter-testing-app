@@ -10,4 +10,3 @@
 10. Add the test point rates to the test results table
 11. Create feature that would allow a person undertaking a task to click on run and have the db look up the serial number of the meter that was assigned and automatically select the appropriate test
 12. On the new test result page, allow a user to change the protocol or test type
-13. Create a feature that would allow a user to filter for only open tasks
