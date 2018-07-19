@@ -12,25 +12,3 @@ LIGHTBOX
     overflow: auto;
     z-index: 10001
 }
-
-/********************************************************
-ERROR MESSAGES
-*********************************************************/
-
-/* Devise */
-#error_explanation {
-  h2 {
-    display: none;
-  }
-
-  ul {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding-left: 20px;
-
-    li {
-    color: red;
-    text-align: left;
-    }
-  }
-}

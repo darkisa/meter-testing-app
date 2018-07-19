@@ -6,4 +6,15 @@
       <% end %>
     </ul>
   </div>
+<% elsif alert || notice %>
+  <div class="alert alert-danger" role="alert">
+    <ul>
+      <% if alert %>
+        <li><%= alert %></li>
+      <% end %>
+      <% if notice %>
+        <li><%= alert %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
