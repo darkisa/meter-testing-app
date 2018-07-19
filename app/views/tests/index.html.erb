@@ -1,17 +1,20 @@
-<table class='table'>
-  <tr>
-    <th>Test Name</th>
-    <th>Size</th>
-    <th>Type</th>
-    <th>Brand</th>
-    <th>Model</th>
-    <th>Test Type</th>
-    <th>Protocol</th>
-    <th>Run Test</th>
-    <th>Update</th>
-    <th>Delete</th>
-  </tr>
+<table class='table table-hover'>
+  <thead class='thead-dark'>
+    <tr>
+      <th scope='col'>Test Name</th>
+      <th scope='col'>Size</th>
+      <th scope='col'>Type</th>
+      <th scope='col'>Brand</th>
+      <th scope='col'>Model</th>
+      <th scope='col'>Test Type</th>
+      <th scope='col'>Protocol</th>
+      <th scope='col'>Run Test</th>
+      <th scope='col'>Update</th>
+      <th scope='col'>Delete</th>
+    </tr>
+  </thead>
  
+  <tbody>
   <% @tests.each do |test| %>
     <tr>
       <td><%= test.test_name %></td>
@@ -26,4 +29,5 @@
       <td><%= link_to('Delete', test_path(test), method: :delete) %></td>
     </tr>
   <% end %>
+  </tbody>
 </table>
