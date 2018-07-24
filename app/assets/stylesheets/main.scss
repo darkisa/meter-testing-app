@@ -1,10 +1,8 @@
-@import 'bootstrap-sprockets';
 @import 'bootstrap';
-@import 'base/mixins.scss';
 @import 'base/globals.scss';
 @import 'base/partials.scss';
+@import 'base/forms.scss';
 @import 'styles/header.scss';
-@import 'styles/forms.scss';
 @import 'styles/test_results.scss';
 @import 'styles/reports.scss';
 @import 'styles/login.scss';
