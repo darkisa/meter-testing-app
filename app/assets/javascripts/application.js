@@ -15,6 +15,7 @@
 //removed - require jquery.turbolinks
 //= require tether
 //= require bootstrap-sprockets
+//= require bootstrap
 //removed - require rails-ujs
 //removed - require turbolinks
 //= require raphael
