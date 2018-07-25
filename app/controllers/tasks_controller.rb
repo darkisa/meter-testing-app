@@ -7,6 +7,7 @@ class TasksController < ApplicationController
   def new
     @task = Task.new
     @users = User.all
+    @heading = 'New Task'
 
     render 'tasks/_task_form'
   end

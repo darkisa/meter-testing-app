@@ -1,45 +1,61 @@
-<div id='form-containier' class='form'>  
-  
-  <%= form_for @task do |f| %>
+<div class='container h-100'>
+  <div class='row h-100 justify-content-center align-items-center'>
+    <div class='col align-self-center'>
+      <%= form_for @task, html: { class: 'form', autocomplete: 'off' }  do |f| %>
+        <h3><%= @heading %></h3>
+        
+        <div class='form-group row'>
+          <%= f.label :assigned_by, "Assigned By", class: 'col-sm-4 col-form-label' %>
+          <div class="col-sm-8">
+            <span><%= current_user.full_name %></span>
+            <%= f.hidden_field :assigned_by, value: current_user.id %>
+          </div>
+        </div>
 
-    <h1><%= @heading %></h1>
-    
-    <div class="form-group">
-      <%= f.label "Assigned By" %>
-      <span><%= current_user.full_name %></span>
-      <%= f.hidden_field :assigned_by, value: current_user.id %>
+        <div class="form-group row">
+          <%= f.label :serial_no, "Serial No", class: 'col-sm-4 col-form-label' %>
+          <div class="col-sm-8">
+            <%= f.text_field :serial_no, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :account, "Account", class: 'col-sm-4 col-form-label' %>
+          <div class="col-sm-8">
+            <%= f.text_field :account, class: 'form-control' %>
+          </div>
+        </div> 
+
+        <div class="form-group row">
+          <%= f.label :assigned_to, "Assigned To", class: 'col-sm-4 col-form-label' %>
+          <div class="col-sm-8">
+            <%= f.collection_select :assigned_to, User.order(:email), :id, :email, { selected: current_user.id }, class: 'form-control' %>
+          </div>
+        </div> 
+
+        <div class="form-group">
+          <%= f.label :comments, "Comments" %>
+          <%= f.text_area :comments, class: 'form-control' %>
+        </div>
+
+        <% if @task.id %>
+          <div class="form-group row">
+            <div class="col-sm-12">
+              <div class="form-check">
+                <%= f.check_box :completed, class: 'form-check-input checkbox' %>
+                <%= f.label :completed, "Completed", class: 'form-check-label' %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+        <div class='form-group row'>
+          <div class="col-sm-12">
+            <%= f.submit 'Submit', class: 'button btn btn-primary btn-block btn-lg' %>
+          </div>
+        </div>
+
+      <% end %>
     </div>
-
-    <div class="form-group">
-      <%= f.label :serial_no, "Serial No" %>
-      <%= f.text_field :serial_no, :class => "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :account, "Account" %>
-      <%= f.text_field :account, :class => "form-control" %>
-    </div> 
-
-    <div class="form-group">
-      <%= f.label :assigned_to, "Assigned To" %><br>
-      <%= f.collection_select :assigned_to, User.order(:email), :id, :email, { selected: current_user.id }, class: "form-control" %>
-    </div> 
-
-    <div class="form-group">
-      <%= f.label :comments, "Comments" %>
-      <%= f.text_area :comments, :class => "form-control" %>
-    </div>
-
-    <% if @task.id %>
-      <div class="form-group">
-        <%= f.label :completed, "Completed" %>
-        <%= f.check_box :completed %>
-      </div>
-    <% end %>
-
-    <div class="actions">
-      <%= f.submit 'Submit', class: 'button btn btn-primary btn-block btn-lg' %>
-    </div>
-
-  <% end %>
+  </div>
 </div>
