@@ -1,175 +1,177 @@
-<div id='form-container'>
+<div id='container'>
 
-  <%= form_for @test_result, id: "test-result-form" do |f| %>
+  <%= form_for @test_result, html: { class: 'form' } do |f| %>
+    <div class='row justify-content-center align-items-center'>
 
-    <div id="test-form">
-      <div id='form-header'>
-        <h2><%= @test.test_name %> Test</h2>
-        <p>Test Date <%= f.datetime_local_field :test_start_date, value: @time, readonly: true %>
-        </p>
+      <div id="">
+        <div id='form-header'>
+          <h2><%= @test.test_name %> Test</h2>
+          <p>Test Date <%= f.datetime_local_field :test_start_date, value: @time, readonly: true %>
+          </p>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :meter_size, 'Meter Size' %>
+          <%= f.number_field  :meter_size, value: @test.size, step: 'any', class: 'form-control' %>
+        </div>
+
+        <div class='form-group'>
+          <%= f.label :meter_type, 'Meter Type' %>
+          <%= f.text_field :meter_type, value: @test.meter_type, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :meter_brand, 'Meter Brand' %>
+          <%= f.text_field :meter_brand, value: @test.brand, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :model, "Meter Model" %>
+          <%= f.text_field :model, value: @test.model, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :serial_no, "Serial No" %>
+          <%= f.text_field :serial_no, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :account, 'Account' %>
+          <%= f.text_field :account, class: 'form-control' %>
+        </div>
+
       </div>
-
-      <div class="form-group">
-        <%= f.label :meter_size, 'Meter Size' %>
-        <%= f.number_field  :meter_size, value: @test.size, step: 'any', class: 'form-control' %>
-      </div>
-
-      <div class='form-group'>
-        <%= f.label :meter_type, 'Meter Type' %>
-        <%= f.text_field :meter_type, value: @test.meter_type, class: 'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :meter_brand, 'Meter Brand' %>
-        <%= f.text_field :meter_brand, value: @test.brand, class: 'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :model, "Meter Model" %>
-        <%= f.text_field :model, value: @test.model, class: 'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :serial_no, "Serial No" %>
-        <%= f.text_field :serial_no, class: 'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :account, 'Account' %>
-        <%= f.text_field :account, class: 'form-control' %>
-      </div>
-
     </div>
 
-<%# Test result form ###########################################################################%>
-    <table id="test-table">
+  <%# Test result form ###########################################################################%>
+      <table id="test-table">
 
-      <thead>
+        <thead>
 
-        <%# iterate over the protocol object's attributes and produce the first row 
-        of the header %>
-        <tr>  
-          <th rowspan="2"><%= @protocol.name %></th>
-          <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
-            <% if value == nil or attribute == "compound" %>
-              <% break %>
+          <%# iterate over the protocol object's attributes and produce the first row 
+          of the header %>
+          <tr>  
+            <th rowspan="2"><%= @protocol.name %></th>
+            <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
+              <% if value == nil or attribute == "compound" %>
+                <% break %>
+              <% end %>
+              <th><%= "Test Point #{index + 1}" %></th>
             <% end %>
-            <th><%= "Test Point #{index + 1}" %></th>
-          <% end %>
-        </tr>
+          </tr>
 
-        <%# iterate over the protocol object's attributes and produce the second row 
-        of the header that has the GPMs %>
-        <tr>
-          <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
-            <% if value == nil or attribute == "compound" %>
-              <% break %>
+          <%# iterate over the protocol object's attributes and produce the second row 
+          of the header that has the GPMs %>
+          <tr>
+            <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
+              <% if value == nil or attribute == "compound" %>
+                <% break %>
+              <% end %>
+              <th><%= value %></th>
             <% end %>
-            <th><%= value %></th>
-          <% end %>
-        </tr>
+          </tr>
 
-      </thead>
+        </thead>
 
-      <tbody>
+        <tbody>
 
-        <%# iterate over the protocol object's attributes and specify whether its a
-        main line or secondary line %>
-        <tr>
-          <th></th>
-          <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
-            <% if value == nil or attribute == "compound" %>
-              <% break %>
-             <% end %>
-            <th>Main</th>
-          <% end %>
-        </tr>
-
-        <%# for collecting the meter start read %>
-        <tr id="start-read">
-          <td>Start Read</td>
-          <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
-            <% if value == nil or attribute == "compound" %>
-              <% break %>
-             <% end %>
-            <td><%= f.number_field "tp#{index + 1}_start_read".to_sym, step: "any" %></td>
-          <% end %>
-        </tr>
-
-        <%# for collecting the meter ending read %>
-        <tr id="end-read">
-          <td>End Read</td>
-          <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
-            <% if value == nil or attribute == "compound" %>
-              <% break %>
-             <% end %>
-            <td><%= f.number_field "tp#{index + 1}_end_read".to_sym, step: "any" %></td>
-          <% end %>
-        </tr>
-
-        <%# total volume %>
-        <tr id="volume">
-          <td>Volume</td>
-          <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
-            <% if value == nil or attribute == "compound" %>
-              <% break %>
-             <% end %>
-            <td class="register-volume">
-              <%= f.number_field "tp#{index + 1}_register_volume".to_sym, :class => "no-entry", :readonly => true %>
-            </td>
+          <%# iterate over the protocol object's attributes and specify whether its a
+          main line or secondary line %>
+          <tr>
+            <th></th>
+            <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
+              <% if value == nil or attribute == "compound" %>
+                <% break %>
+               <% end %>
+              <th>Main</th>
             <% end %>
-        </tr>
+          </tr>
 
-        <%# for collecting reference meter start read %>
-        <tr id="ref-start-read">
-          <td>Reference Start Read</td>
-          <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
-            <% if value == nil or attribute == "compound" %>
-              <% break %>
-             <% end %>
-            <td><%= number_field_tag "ref_start_read_#{index + 1}", nil, step: "any" %></td>
-          <% end %>
-        </tr>
+          <%# for collecting the meter start read %>
+          <tr id="start-read">
+            <td>Start Read</td>
+            <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
+              <% if value == nil or attribute == "compound" %>
+                <% break %>
+               <% end %>
+              <td><%= f.number_field "tp#{index + 1}_start_read".to_sym, step: "any" %></td>
+            <% end %>
+          </tr>
 
-        <%# for collecting reference meter end read %>
-        <tr id="ref-end-read">
-          <td>Reference End Read</td>
-          <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
-            <% if value == nil or attribute == "compound" %>
-              <% break %>
-             <% end %>
-            <td><%= number_field_tag "ref_end_read#{index + 1}", nil, step: "any" %></td>
-          <% end %>
-        </tr>
+          <%# for collecting the meter ending read %>
+          <tr id="end-read">
+            <td>End Read</td>
+            <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
+              <% if value == nil or attribute == "compound" %>
+                <% break %>
+               <% end %>
+              <td><%= f.number_field "tp#{index + 1}_end_read".to_sym, step: "any" %></td>
+            <% end %>
+          </tr>
 
-        <%# for collecting reference volume %>
-        <tr id="ref-volume">
-          <td>Reference Volume</td>
-          <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
-            <% if value == nil or attribute == "compound" %>
-              <% break %>
-             <% end %>
-            <td class="reference-volume">
-              <%= f.number_field "tp#{index + 1}_reference_volume".to_sym, :class => "no-entry", :readonly => true  %>
-            </td>
-          <% end %>
+          <%# total volume %>
+          <tr id="volume">
+            <td>Volume</td>
+            <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
+              <% if value == nil or attribute == "compound" %>
+                <% break %>
+               <% end %>
+              <td class="register-volume">
+                <%= f.number_field "tp#{index + 1}_register_volume".to_sym, :class => "no-entry", :readonly => true %>
+              </td>
+              <% end %>
+          </tr>
 
-        <%# for calculating the accuracy of each test point%>
-        <tr id="accuracy">
-          <td>Accuracy</td>
-          <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
-            <% if value == nil or attribute == "compound" %>
-              <% break %>
-             <% end %>
-            <td class="accuracy">
-              <%= f.number_field "tp#{index + 1}_accuracy".to_sym, :class => "no-entry", :readonly => true  %>
-            </td>
-          <% end %>
-        </tr>
+          <%# for collecting reference meter start read %>
+          <tr id="ref-start-read">
+            <td>Reference Start Read</td>
+            <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
+              <% if value == nil or attribute == "compound" %>
+                <% break %>
+               <% end %>
+              <td><%= number_field_tag "ref_start_read_#{index + 1}", nil, step: "any" %></td>
+            <% end %>
+          </tr>
 
-      </tbody>
-    </table>
-    <%= f.text_area :comments %>
-    <%= f.submit "Submit", :class => "btn btn-primary btn-block btn-lg"%>
+          <%# for collecting reference meter end read %>
+          <tr id="ref-end-read">
+            <td>Reference End Read</td>
+            <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
+              <% if value == nil or attribute == "compound" %>
+                <% break %>
+               <% end %>
+              <td><%= number_field_tag "ref_end_read#{index + 1}", nil, step: "any" %></td>
+            <% end %>
+          </tr>
+
+          <%# for collecting reference volume %>
+          <tr id="ref-volume">
+            <td>Reference Volume</td>
+            <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
+              <% if value == nil or attribute == "compound" %>
+                <% break %>
+               <% end %>
+              <td class="reference-volume">
+                <%= f.number_field "tp#{index + 1}_reference_volume".to_sym, :class => "no-entry", :readonly => true  %>
+              </td>
+            <% end %>
+
+          <%# for calculating the accuracy of each test point%>
+          <tr id="accuracy">
+            <td>Accuracy</td>
+            <% @protocol.attributes.each_with_index do |(attribute, value), index| %>
+              <% if value == nil or attribute == "compound" %>
+                <% break %>
+               <% end %>
+              <td class="accuracy">
+                <%= f.number_field "tp#{index + 1}_accuracy".to_sym, :class => "no-entry", :readonly => true  %>
+              </td>
+            <% end %>
+          </tr>
+
+        </tbody>
+      </table>
+      <%= f.text_area :comments %>
+      <%= f.submit "Submit", :class => "btn btn-primary btn-block btn-lg"%>
   <% end %>
 </div>

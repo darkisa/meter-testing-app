@@ -2,7 +2,7 @@
   z-index: 1;
   margin: 0 auto;
   background: #FFFFFF;
-  max-width: 450px;
+  // max-width: 450px;
   padding: 45px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
@@ -68,4 +68,12 @@
 
 .form .register-form {
   display: none;
+}
+
+/**** Protocol Form ****/
+
+#new-protocol {
+  .form-group {
+    margin-bottom: 0;
+  }
 }

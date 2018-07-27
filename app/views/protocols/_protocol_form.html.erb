@@ -1,57 +1,83 @@
+<div class='row h-100 justify-content-center align-items-center'>  
   <%= form_for @protocol, :html => {:class => 'form', :id => 'new-protocol'} do |f| %>
 
     <h1><%= @heading %></h1>
 
-    <div class="field">
-      <%= f.text_field :name, autofocus: true, placeholder: 'name'%>
+    <div class='form-group row'>
+      <%= f.text_field :name, autofocus: true, 
+                            placeholder: 'name', 
+                                  class: 'form-control' %>
     </div>
 
-    <div class="field">
-      <%= f.number_field :tp1, placeholder: 'test point 1', step: 'any' %>
+    <div class='form-group row'>
+      <%= f.number_field :tp1, placeholder: 'test point 1', 
+                                      step: 'any',
+                                     class: 'form-control' %>
     </div>
 
-    <div class="field">
-      <%= f.number_field :tp2, placeholder: 'test point 2', step: 'any' %>
+    <div class='form-group row'>
+      <%= f.number_field :tp2, placeholder: 'test point 2', 
+                                      step: 'any',
+                                     class: 'form-control' %>
     </div>
 
-    <div class="field">
-      <%= f.number_field :tp3, placeholder: 'test point 3', step: 'any' %>
+    <div class='form-group row'>
+      <%= f.number_field :tp3, placeholder: 'test point 3', 
+                                      step: 'any',
+                                     class: 'form-control' %>
     </div>
 
-    <div class="field">
-      <%= f.number_field :tp4, placeholder: 'test point 4', step: 'any' %>
+    <div class='form-group row'>
+      <%= f.number_field :tp4, placeholder: 'test point 4', 
+                                      step: 'any',
+                                     class: 'form-control' %>
     </div>
 
-    <div class="field">
-      <%= f.number_field :tp5, placeholder: 'test point 5', step: 'any' %>
+    <div class='form-group row'>
+      <%= f.number_field :tp5, placeholder: 'test point 5', 
+                                      step: 'any',
+                                     class: 'form-control' %>
     </div>
 
-    <div class="field">
-      <%= f.number_field :tp6, placeholder: 'test point 6', step: 'any' %>
+    <div class='form-group row'>
+      <%= f.number_field :tp6, placeholder: 'test point 6', 
+                                      step: 'any',
+                                     class: 'form-control' %>
     </div>
 
-    <div class="field">
-      <%= f.number_field :tp7, placeholder: 'test point 7', step: 'any' %>
+    <div class='form-group row'>
+      <%= f.number_field :tp7, placeholder: 'test point 7', 
+                                      step: 'any',
+                                     class: 'form-control' %>
     </div>
 
-    <div class="field">
-      <%= f.number_field :tp8, placeholder: 'test point 8', step: 'any' %>
+    <div class='form-group row'>
+      <%= f.number_field :tp8, placeholder: 'test point 8', 
+                                      step: 'any',
+                                     class: 'form-control' %>
     </div>
 
-    <div class="field">
-      <%= f.number_field :tp9, placeholder: 'test point 9', step: 'any' %>
+    <div class='form-group row'>
+      <%= f.number_field :tp9, placeholder: 'test point 9', 
+                                      step: 'any',
+                                     class: 'form-control' %>
     </div>
 
-    <div class="field">
-      <%= f.number_field :tp10, placeholder: 'test point 10', step: 'any' %>
+    <div class='form-group row'>
+      <%= f.number_field :tp10, placeholder: 'test point 10', 
+                                       step: 'any',
+                                      class: 'form-control' %>
     </div>
 
-    <div class="field">
-      <%= f.number_field :tp11, placeholder: 'test point 11', step: 'any' %>
+    <div class='form-group row'>
+      <%= f.number_field :tp11, placeholder: 'test point 11', 
+                                       step: 'any',
+                                      class: 'form-control' %>
     </div>
 
-    <div class="actions">
+    <div class='form-group row'>
       <%= f.submit @submit_text, class: 'button' %>
     </div>
 
   <% end %>
+</div>
